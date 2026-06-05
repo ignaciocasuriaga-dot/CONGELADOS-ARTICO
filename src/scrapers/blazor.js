@@ -1,44 +1,45 @@
 import { launchBrowser, randomDelay } from '../browser.js';
 import { matchedBrand, brandGroup } from '../brands.js';
 
-async function searchTermBlazor(page, baseUrl, term) {
-  const url = `${baseUrl}/productos/keyword/${encodeURIComponent(term)}`;
+// Disco Uruguay usa VTEX — search en /buscar?q={term}, productos en /{slug}/p
+async function searchTermDisco(page, term) {
+  const url = `https://www.disco.com.uy/buscar?q=${encodeURIComponent(term)}`;
   await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
 
+  // Espera que aparezcan productos o un mensaje de sin resultados
   await page.waitForFunction(() => {
-    const text = document.body.innerText || '';
-    const matches = text.match(/\$\s*\d+[.,]?\d*/g) || [];
-    return matches.filter((m) => !/\$\s*0(\D|$)/.test(m)).length >= 3;
-  }, { timeout: 25000 }).catch(() => {});
+    return document.querySelectorAll('a[href$="/p"]').length > 0
+      || document.body.innerText.includes('No encontramos')
+      || document.body.innerText.includes('sin resultado');
+  }, { timeout: 20000 }).catch(() => {});
 
   for (let i = 0; i < 3; i++) {
     await page.evaluate(() => window.scrollBy(0, window.innerHeight * 2));
-    await randomDelay(700, 1200);
+    await randomDelay(600, 1000);
   }
-  await randomDelay(1500, 2500);
+  await randomDelay(1000, 1800);
 
   return page.evaluate(() => {
-    const links = document.querySelectorAll('a[href*="/product/"]');
+    // VTEX: product links terminan en /p
+    const links = [...document.querySelectorAll('a[href$="/p"]')];
     const bySku = new Map();
+
     links.forEach((link) => {
       const href = link.href;
-      const skuMatch = href.match(/\/product\/[^/]+\/(\d+)/);
-      if (!skuMatch) return;
-      const sku = skuMatch[1];
+      // SKU en VTEX a veces está en data attributes, sino usar el slug como id
+      const skuEl = link.closest('[data-product-id]') || link.closest('[data-sku-id]');
+      const sku = skuEl?.dataset?.productId || skuEl?.dataset?.skuId || href.replace(/.*\/([^/]+)\/p$/, '$1');
+      if (!sku || bySku.has(sku)) return;
 
-      const card =
-        link.closest('article') || link.closest('li') ||
-        link.closest('[class*="card"]') || link.closest('[class*="producto"]') ||
-        link.closest('[class*="product"]') || link.parentElement?.parentElement;
+      const card = link.closest('article') || link.closest('li')
+        || link.closest('[class*="card"]') || link.closest('[class*="product"]')
+        || link.parentElement?.parentElement?.parentElement;
       if (!card) return;
+
       const text = (card.innerText || '').trim();
-
-      const existing = bySku.get(sku);
-      if (existing && existing.cardText.length >= text.length) return;
-
-      const nameEl = card.querySelector('h2, h3, h4, [class*="nombre"], [class*="title"], [class*="name"]') || link;
-      const name = (nameEl.innerText || '').trim().replace(/\s+/g, ' ');
-      if (!name) return;
+      const nameEl = card.querySelector('h2, h3, h4, [class*="name"], [class*="title"], [class*="nombre"]') || link;
+      let name = (nameEl.innerText || link.title || link.getAttribute('aria-label') || '').trim().replace(/\s+/g, ' ');
+      if (!name || name.length < 3) return;
 
       const priceMatches = text.match(/\$\s*[\d.,]+/g) || [];
       const prices = priceMatches
@@ -50,28 +51,29 @@ async function searchTermBlazor(page, baseUrl, term) {
         price: prices.length ? Math.min(...prices) : null,
         listPrice: prices.length > 1 ? Math.max(...prices) : null,
         url: href,
-        cardText: text,
       });
     });
-    return [...bySku.values()].map(({ cardText, ...rest }) => rest);
+
+    return [...bySku.values()];
   });
 }
 
-async function scrapeBlazorSite({ store, baseUrl, terms }) {
+export async function scrapeDisco(terms) {
   const { browser, context } = await launchBrowser({ headless: true });
   const page = await context.newPage();
   const bySku = new Map();
   try {
     for (const term of terms) {
       let items;
-      try { items = await searchTermBlazor(page, baseUrl, term); }
-      catch (e) { console.error(`  WARN ${store} "${term}": ${e.message}`); continue; }
+      try { items = await searchTermDisco(page, term); }
+      catch (e) { console.error(`  WARN disco "${term}": ${e.message}`); continue; }
 
       for (const i of items) {
+        if (!i.name) continue;
         const brand = matchedBrand(i.name);
         if (!brand || bySku.has(i.sku)) continue;
         bySku.set(i.sku, {
-          super: store,
+          super: 'disco',
           sku: i.sku,
           name: i.name,
           brand,
@@ -88,8 +90,6 @@ async function scrapeBlazorSite({ store, baseUrl, terms }) {
     await browser.close();
   }
 }
-
-export const scrapeDisco = (terms) => scrapeBlazorSite({ store: 'disco', baseUrl: 'https://www.disco.com.uy', terms });
 
 import { fileURLToPath } from 'node:url';
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {

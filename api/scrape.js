@@ -147,6 +147,15 @@ async function scrapeTiendaInglesa() {
   return [...bySku.values()];
 }
 
+// ── Disparar GitHub Actions (Playwright para Disco + TI) ──────────────────
+async function triggerGitHubActions() {
+  await fetch(`https://api.github.com/repos/${GH_REPO}/actions/workflows/scrape.yml/dispatches`, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${_k}`, Accept: 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28', 'Content-Type': 'application/json' },
+    body: JSON.stringify({ ref: 'main' }),
+  });
+}
+
 // ── Guardar en GitHub ──────────────────────────────────────────────────────
 async function commitToGitHub(payload) {
   const base = `https://api.github.com/repos/${GH_REPO}/contents`;
@@ -201,7 +210,10 @@ export default async function handler(req, res) {
 
   commitToGitHub(payload).catch(() => {});
 
+  // Dispara GitHub Actions en background para raspar Disco + TI con Playwright
+  triggerGitHubActions().catch(() => {});
+
   const ms = Date.now() - t0;
   console.log(`Scraping completado en ${ms}ms — ${items.length} productos (${scrapeResults.map(s=>`${s.name}:${s.count}`).join(', ')})`);
-  return res.status(200).json(payload);
+  return res.status(200).json({ ...payload, playwrightTriggered: true });
 }
