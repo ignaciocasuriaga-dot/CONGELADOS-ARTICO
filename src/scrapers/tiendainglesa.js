@@ -1,8 +1,9 @@
 import { launchBrowser, randomDelay } from '../browser.js';
 import { matchedBrand, brandGroup } from '../brands.js';
 
-// Tienda Inglesa: https://www.tiendainglesa.com.uy/supermercado/busqueda?0,0,artico,0
-// Producto links: /supermercado/detalle.producto?{sku}
+// Tienda Inglesa
+// Search: https://www.tiendainglesa.com.uy/supermercado/busqueda?0,0,artico,0
+// Producto: /supermercado/detalle.producto?{sku}
 async function searchTermTI(page, term) {
   const url = `https://www.tiendainglesa.com.uy/supermercado/busqueda?0,0,${encodeURIComponent(term)},0`;
   await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
@@ -12,11 +13,12 @@ async function searchTermTI(page, term) {
       || document.body.innerText.length > 500;
   }, { timeout: 25000 }).catch(() => {});
 
-  for (let i = 0; i < 4; i++) {
+  // Scroll para cargar lazy-loaded products
+  for (let i = 0; i < 5; i++) {
     await page.evaluate(() => window.scrollBy(0, window.innerHeight * 2));
-    await randomDelay(600, 1000);
+    await randomDelay(700, 1100);
   }
-  await randomDelay(1200, 2000);
+  await randomDelay(1500, 2500);
 
   return page.evaluate(() => {
     const bySku = new Map();
@@ -32,20 +34,25 @@ async function searchTermTI(page, term) {
         || link.closest('[class*="item"]') || link.parentElement?.parentElement;
       const text = (card?.innerText || '').trim();
 
-      // Nombre: title del link, alt de img, o primera línea del card
+      // Extraer nombre del producto
       let name = link.getAttribute('title') || '';
       if (!name) name = link.querySelector('img')?.getAttribute('alt') || '';
       if (!name && card) {
-        const nameEl = card.querySelector('h2, h3, h4, [class*="nombre"], [class*="title"], [class*="name"]');
-        name = nameEl?.innerText || text.split('\n').filter(l => l.trim().length > 3)[0] || '';
+        const nameEl = card.querySelector('h2, h3, h4, [class*="nombre"], [class*="title"], [class*="name"], [class*="descripcion"]');
+        name = nameEl?.innerText || '';
+      }
+      if (!name && text) {
+        // Tomar primera línea no vacía del card
+        const lines = text.split('\n').map(l => l.trim()).filter(l => l.length > 3 && !/^\$/.test(l));
+        name = lines[0] || '';
       }
       name = name.replace(/\s+/g, ' ').trim();
       if (!name || name.length < 3) return;
 
-      const priceMatches = text.match(/\$\s*[\d.]+,?\d*/g) || [];
+      const priceMatches = text.match(/\$\s*[\d.]+(?:,\d+)?/g) || [];
       const prices = priceMatches
-        .map((m) => Number(m.replace(/[^\d,]/g, '').replace(',', '.')))
-        .filter((n) => n > 0 && n < 100000);
+        .map((m) => Number(m.replace(/\$/g, '').replace(/\./g, '').replace(',', '.').trim()))
+        .filter((n) => n > 10 && n < 100000);
 
       bySku.set(sku, {
         sku, name,
@@ -65,14 +72,16 @@ export async function scrapeTiendaInglesa(terms) {
   const bySku = new Map();
   try {
     for (const term of terms) {
-      let items;
+      let items = [];
       try { items = await searchTermTI(page, term); }
       catch (e) { console.error(`  ⚠ ti "${term}": ${e.message}`); continue; }
 
       for (const i of items) {
-        if (!i.name) continue;
-        const brand = matchedBrand(i.name);
-        if (!brand || bySku.has(i.sku)) continue;
+        if (!i.name || bySku.has(i.sku)) continue;
+        // Detectar marca por nombre; si no, usar el término de búsqueda como pista
+        let brand = matchedBrand(i.name);
+        if (!brand) brand = matchedBrand(term);
+        if (!brand) continue;
         bySku.set(i.sku, {
           super: 'tiendainglesa',
           sku: i.sku,

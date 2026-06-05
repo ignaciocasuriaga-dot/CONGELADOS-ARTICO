@@ -1,43 +1,47 @@
 import { launchBrowser, randomDelay } from '../browser.js';
 import { matchedBrand, brandGroup } from '../brands.js';
 
-// Disco: https://www.disco.com.uy/productos/keyword/ARTICO
-// Producto links: /product/{slug}/{id}
+// Disco Uruguay usa VTEX
+// Search: https://www.disco.com.uy/productos/keyword/ARTICO
+// Producto: https://www.disco.com.uy/{slug}/p  (VTEX — termina en /p)
 async function searchTermDisco(page, term) {
   const url = `https://www.disco.com.uy/productos/keyword/${encodeURIComponent(term)}`;
   await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
 
+  // Esperar que carguen productos VTEX (links terminan en /p) o mensaje vacío
   await page.waitForFunction(() => {
-    return document.querySelectorAll('a[href*="/product/"]').length > 0
-      || document.body.innerText.includes('No se encontraron')
+    return document.querySelectorAll('a[href$="/p"]').length > 0
+      || document.querySelectorAll('[class*="galleryItem"], [class*="product-item"]').length > 0
+      || document.body.innerText.includes('No encontramos')
       || document.body.innerText.includes('sin resultado');
   }, { timeout: 25000 }).catch(() => {});
 
   for (let i = 0; i < 4; i++) {
     await page.evaluate(() => window.scrollBy(0, window.innerHeight * 2));
-    await randomDelay(600, 1000);
+    await randomDelay(700, 1200);
   }
-  await randomDelay(1200, 2000);
+  await randomDelay(1500, 2500);
 
   return page.evaluate(() => {
-    const links = [...document.querySelectorAll('a[href*="/product/"]')];
     const bySku = new Map();
 
-    links.forEach((link) => {
+    // VTEX product links terminan en /p
+    document.querySelectorAll('a[href$="/p"]').forEach((link) => {
       const href = link.href;
-      const skuMatch = href.match(/\/product\/[^/]+\/(\d+)/);
-      if (!skuMatch) return;
-      const sku = skuMatch[1];
-      if (bySku.has(sku)) return;
+      // Extraer SKU o usar slug como identificador
+      const skuEl = link.closest('[data-product-id]') || link.closest('[data-sku-id]');
+      const sku = skuEl?.dataset?.productId || skuEl?.dataset?.skuId
+        || href.replace(/.*\/([^/]+)\/p(\?.*)?$/, '$1');
+      if (!sku || bySku.has(sku)) return;
 
       const card = link.closest('article') || link.closest('li')
-        || link.closest('[class*="card"]') || link.closest('[class*="product"]')
-        || link.parentElement?.parentElement?.parentElement;
+        || link.closest('[class*="galleryItem"]') || link.closest('[class*="product"]')
+        || link.closest('[class*="card"]') || link.parentElement?.parentElement;
       if (!card) return;
 
       const text = (card.innerText || '').trim();
-      const nameEl = card.querySelector('h2, h3, h4, [class*="nombre"], [class*="title"], [class*="name"]') || link;
-      let name = (nameEl.innerText || link.title || link.getAttribute('aria-label') || '').trim().replace(/\s+/g, ' ');
+      const nameEl = card.querySelector('span[class*="productName"], h2, h3, h4, [class*="name"], [class*="nombre"], [class*="title"]') || link;
+      let name = (nameEl.innerText || link.getAttribute('aria-label') || link.title || '').trim().replace(/\s+/g, ' ');
       if (!name || name.length < 3) return;
 
       const priceMatches = text.match(/\$\s*[\d.,]+/g) || [];
@@ -63,14 +67,16 @@ export async function scrapeDisco(terms) {
   const bySku = new Map();
   try {
     for (const term of terms) {
-      let items;
+      let items = [];
       try { items = await searchTermDisco(page, term); }
       catch (e) { console.error(`  WARN disco "${term}": ${e.message}`); continue; }
 
       for (const i of items) {
-        if (!i.name) continue;
-        const brand = matchedBrand(i.name);
-        if (!brand || bySku.has(i.sku)) continue;
+        if (!i.name || bySku.has(i.sku)) continue;
+        // Intentar detectar marca por nombre; si no, usar el término de búsqueda como pista
+        let brand = matchedBrand(i.name);
+        if (!brand) brand = matchedBrand(term); // usa el término si el nombre no tiene la marca
+        if (!brand) continue;
         bySku.set(i.sku, {
           super: 'disco',
           sku: i.sku,
