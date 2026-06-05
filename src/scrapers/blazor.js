@@ -1,64 +1,92 @@
 import { launchBrowser, randomDelay } from '../browser.js';
 import { matchedBrand, brandGroup } from '../brands.js';
 
-// Disco Uruguay usa VTEX
-// Search: https://www.disco.com.uy/productos/keyword/ARTICO
-// Producto: https://www.disco.com.uy/{slug}/p  (VTEX — termina en /p)
+// Disco: https://www.disco.com.uy/productos/keyword/ARTICO
+// Intercepta las respuestas de red JSON que hace el browser al renderizar la página
+// (bypassa el problema de selectores DOM y Cloudflare JS challenge)
 async function searchTermDisco(page, term) {
-  const url = `https://www.disco.com.uy/productos/keyword/${encodeURIComponent(term)}`;
-  await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
+  const intercepted = [];
 
-  // Esperar que carguen productos VTEX (links terminan en /p) o mensaje vacío
-  await page.waitForFunction(() => {
-    return document.querySelectorAll('a[href$="/p"]').length > 0
-      || document.querySelectorAll('[class*="galleryItem"], [class*="product-item"]').length > 0
-      || document.body.innerText.includes('No encontramos')
-      || document.body.innerText.includes('sin resultado');
-  }, { timeout: 25000 }).catch(() => {});
-
-  for (let i = 0; i < 4; i++) {
-    await page.evaluate(() => window.scrollBy(0, window.innerHeight * 2));
-    await randomDelay(700, 1200);
-  }
-  await randomDelay(1500, 2500);
-
-  return page.evaluate(() => {
-    const bySku = new Map();
-
-    // VTEX product links terminan en /p
-    document.querySelectorAll('a[href$="/p"]').forEach((link) => {
-      const href = link.href;
-      // Extraer SKU o usar slug como identificador
-      const skuEl = link.closest('[data-product-id]') || link.closest('[data-sku-id]');
-      const sku = skuEl?.dataset?.productId || skuEl?.dataset?.skuId
-        || href.replace(/.*\/([^/]+)\/p(\?.*)?$/, '$1');
-      if (!sku || bySku.has(sku)) return;
-
-      const card = link.closest('article') || link.closest('li')
-        || link.closest('[class*="galleryItem"]') || link.closest('[class*="product"]')
-        || link.closest('[class*="card"]') || link.parentElement?.parentElement;
-      if (!card) return;
-
-      const text = (card.innerText || '').trim();
-      const nameEl = card.querySelector('span[class*="productName"], h2, h3, h4, [class*="name"], [class*="nombre"], [class*="title"]') || link;
-      let name = (nameEl.innerText || link.getAttribute('aria-label') || link.title || '').trim().replace(/\s+/g, ' ');
-      if (!name || name.length < 3) return;
-
-      const priceMatches = text.match(/\$\s*[\d.,]+/g) || [];
-      const prices = priceMatches
-        .map((m) => Number(m.replace(/[^\d,]/g, '').replace(',', '.')))
-        .filter((n) => n > 0 && n < 100000);
-
-      bySku.set(sku, {
-        sku, name,
-        price: prices.length ? Math.min(...prices) : null,
-        listPrice: prices.length > 1 ? Math.max(...prices) : null,
-        url: href,
-      });
-    });
-
-    return [...bySku.values()];
+  // Capturar respuestas JSON del browser (llamadas internas de la SPA)
+  page.on('response', async (response) => {
+    const url = response.url();
+    const ct = response.headers()['content-type'] || '';
+    if (!ct.includes('json')) return;
+    if (!/search|product|catalog|keyword|busca/i.test(url)) return;
+    try {
+      const data = await response.json();
+      intercepted.push({ url, data });
+    } catch { /* no es JSON válido */ }
   });
+
+  try {
+    await page.goto(
+      `https://www.disco.com.uy/productos/keyword/${encodeURIComponent(term)}`,
+      { waitUntil: 'networkidle', timeout: 45000 }
+    );
+  } catch { /* timeout parcial — igual procesamos lo interceptado */ }
+
+  await randomDelay(2000, 3000);
+
+  // Procesar datos interceptados
+  const products = [];
+  for (const { data } of intercepted) {
+    // VTEX catalog API: array de productos
+    if (Array.isArray(data)) {
+      products.push(...data);
+    }
+    // VTEX Intelligent Search: { products: [...] }
+    if (data?.products && Array.isArray(data.products)) {
+      products.push(...data.products);
+    }
+    // VTEX search: { data: { productSearch: { products: [...] } } }
+    const ps = data?.data?.productSearch?.products || data?.data?.search?.products?.edges;
+    if (Array.isArray(ps)) products.push(...ps);
+  }
+
+  // Si no interceptamos nada, intentar scraping DOM con múltiples selectores
+  if (products.length === 0) {
+    const domItems = await page.evaluate(() => {
+      const results = [];
+      // VTEX: links terminan en /p
+      document.querySelectorAll('a[href$="/p"], a[href*="/p?"]').forEach(link => {
+        const card = link.closest('article') || link.closest('li') || link.closest('[class*="product"]') || link.closest('[class*="card"]') || link.parentElement?.parentElement;
+        const text = (card?.innerText || '').trim();
+        const nameEl = card?.querySelector('span[class*="productName"], h2, h3, h4, [class*="name"], [class*="title"]') || link;
+        const name = (nameEl.innerText || link.title || '').trim().replace(/\s+/g, ' ');
+        if (!name || name.length < 3) return;
+        const prices = (text.match(/\$\s*[\d.,]+/g) || []).map(m => Number(m.replace(/[^\d,]/g, '').replace(',', '.'))).filter(n => n > 0 && n < 100000);
+        const sku = link.href.replace(/.*\/([^/]+)\/p.*/, '$1');
+        if (sku) results.push({ sku, name, price: prices.length ? Math.min(...prices) : null, listPrice: prices.length > 1 ? Math.max(...prices) : null, url: link.href });
+      });
+      return results;
+    });
+    return domItems;
+  }
+
+  // Normalizar productos interceptados al formato esperado
+  return products.map(p => {
+    // VTEX catalog format
+    if (p.items) {
+      const item = p.items[0];
+      const seller = item?.sellers?.find(s => s.sellerDefault) ?? item?.sellers?.[0];
+      return {
+        sku: item?.itemId ?? p.productId,
+        name: item?.nameComplete ?? item?.name ?? p.productName ?? '',
+        price: seller?.commertialOffer?.Price ?? null,
+        listPrice: seller?.commertialOffer?.ListPrice ?? null,
+        url: p.link ?? null,
+      };
+    }
+    // VTEX IS format
+    return {
+      sku: p.productId ?? p.sku ?? p.id ?? String(Math.random()),
+      name: p.productName ?? p.name ?? '',
+      price: p.price ?? p.priceRange?.sellingPrice?.lowPrice ?? null,
+      listPrice: p.listPrice ?? p.priceRange?.listPrice?.lowPrice ?? null,
+      url: p.link ?? p.linkText ?? null,
+    };
+  }).filter(p => p.name && p.name.length > 2);
 }
 
 export async function scrapeDisco(terms) {
@@ -72,14 +100,13 @@ export async function scrapeDisco(terms) {
       catch (e) { console.error(`  WARN disco "${term}": ${e.message}`); continue; }
 
       for (const i of items) {
-        if (!i.name || bySku.has(i.sku)) continue;
-        // Intentar detectar marca por nombre; si no, usar el término de búsqueda como pista
+        if (!i.name || !i.sku || bySku.has(String(i.sku))) continue;
         let brand = matchedBrand(i.name);
-        if (!brand) brand = matchedBrand(term); // usa el término si el nombre no tiene la marca
+        if (!brand) brand = matchedBrand(term);
         if (!brand) continue;
-        bySku.set(i.sku, {
+        bySku.set(String(i.sku), {
           super: 'disco',
-          sku: i.sku,
+          sku: String(i.sku),
           name: i.name,
           brand,
           group: brandGroup(brand),

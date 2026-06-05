@@ -52,32 +52,16 @@ async function scrapeTata() {
   return [...bySku.values()];
 }
 
-// ── VTEX genérico — intenta dominio principal y fallback vtexcommercestable ──
-async function fetchVtex(domain, term) {
-  const headers = { Accept: 'application/json', 'User-Agent': 'Mozilla/5.0' };
-  const sig = AbortSignal.timeout(9000);
-  // Intenta primero el dominio propio, luego el backend VTEX directo
-  const urls = [
-    `https://${domain}/api/catalog_system/pub/products/search?ft=${encodeURIComponent(term)}&_from=0&_to=49`,
-    `https://${domain}/api/catalog_system/pub/products/search?ft=${encodeURIComponent(term)}&_from=0&_to=49&sc=1`,
-  ];
-  for (const url of urls) {
-    try {
-      const r = await fetch(url, { headers, signal: sig });
-      if (!r.ok) continue;
-      const data = await r.json();
-      if (Array.isArray(data) && data.length > 0) return data;
-    } catch { /* intenta siguiente */ }
-  }
-  return [];
-}
-
+// ── VTEX genérico (ElDorado) ───────────────────────────────────────────────
 async function scrapeVtex(store, domain) {
   const bySku = new Map();
   await Promise.all(TERMS.map(async (term) => {
     try {
-      const products = await fetchVtex(domain, term);
-      for (const p of products) {
+      const url = `https://${domain}/api/catalog_system/pub/products/search?ft=${encodeURIComponent(term)}&_from=0&_to=49`;
+      const r = await fetch(url, { headers: { Accept: 'application/json', 'User-Agent': 'Mozilla/5.0' }, signal: AbortSignal.timeout(9000) });
+      if (!r.ok) return;
+      const products = await r.json();
+      for (const p of (Array.isArray(products) ? products : [])) {
         const item = p.items?.[0];
         const seller = item?.sellers?.find(s => s.sellerDefault) ?? item?.sellers?.[0];
         const sku = item?.itemId ?? p.productId;
@@ -92,59 +76,17 @@ async function scrapeVtex(store, domain) {
   return [...bySku.values()];
 }
 
-// ── Tienda Inglesa ─────────────────────────────────────────────────────────
-async function scrapeTiendaInglesa() {
-  const bySku = new Map();
-
-  // Intento 1: API VTEX (si TI usa VTEX internamente)
-  await Promise.all(TERMS.map(async (term) => {
-    try {
-      const url = `https://www.tiendainglesa.com.uy/api/catalog_system/pub/products/search?ft=${encodeURIComponent(term)}&_from=0&_to=49`;
-      const r = await fetch(url, { headers: { Accept: 'application/json', 'User-Agent': 'Mozilla/5.0' }, signal: AbortSignal.timeout(8000) });
-      if (!r.ok) return;
-      const products = await r.json();
-      if (!Array.isArray(products) || !products.length) return;
-      for (const p of products) {
-        const item = p.items?.[0];
-        const seller = item?.sellers?.find(s => s.sellerDefault) ?? item?.sellers?.[0];
-        const sku = item?.itemId ?? p.productId;
-        if (!sku || bySku.has(String(sku))) continue;
-        const name = item?.nameComplete ?? item?.name ?? p.productName ?? '';
-        const b = matchBrand(`${p.brand ?? ''} ${p.productName ?? ''} ${name}`, term);
-        if (!b) continue;
-        bySku.set(String(sku), { super: 'tiendainglesa', sku: String(sku), name, ...b, category: detectCategory(name), price: seller?.commertialOffer?.Price ?? null, listPrice: seller?.commertialOffer?.ListPrice ?? null, currency: 'UYU', url: p.link ?? (p.linkText ? `https://www.tiendainglesa.com.uy/${p.linkText}/p` : null) });
-      }
-    } catch { /* continúa */ }
-  }));
-
-  // Intento 2: scraping HTML si la API no devolvió nada
-  if (bySku.size === 0) {
-    await Promise.all(TERMS.slice(0, 4).map(async (term) => {
-      try {
-        const url = `https://www.tiendainglesa.com.uy/supermercado/busqueda?0,0,${encodeURIComponent(term)},0`;
-        const r = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)', Accept: 'text/html', 'Accept-Language': 'es-UY,es;q=0.9' }, signal: AbortSignal.timeout(12000) });
-        const html = await r.text();
-
-        // Extrae pares (sku, nombre) sin desalinear — busca bloques de producto
-        const blockRx = /href="[^"]*\.producto\?(\d+)"[^>]*>[\s\S]{0,400}?(?:title|alt)="([^"]{3,120})"/g;
-        let m;
-        while ((m = blockRx.exec(html)) !== null) {
-          const sku = m[1];
-          const name = m[2].trim();
-          if (bySku.has(sku)) continue;
-          const b = matchBrand(name, term);
-          if (!b) continue;
-          // precio: busca el precio más cercano después de esta posición
-          const nearby = html.slice(m.index, m.index + 600);
-          const priceM = nearby.match(/\$\s*([\d.]{2,8})/);
-          const price = priceM ? Number(priceM[1].replace(/\./g,'')) : null;
-          bySku.set(sku, { super: 'tiendainglesa', sku, name, ...b, category: detectCategory(name), price: price && price > 10 ? price : null, listPrice: null, currency: 'UYU', url: `https://www.tiendainglesa.com.uy/supermercado/detalle.producto?${sku}` });
-        }
-      } catch { /* continúa */ }
-    }));
-  }
-
-  return [...bySku.values()];
+// ── Cargar datos previos de TI y Disco desde GitHub ────────────────────────
+async function loadCachedItems(supers) {
+  try {
+    const base = `https://api.github.com/repos/${GH_REPO}/contents`;
+    const headers = { Authorization: `Bearer ${_k}`, Accept: 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28' };
+    const r = await fetch(`${base}/public/data/latest.json`, { headers, signal: AbortSignal.timeout(8000) });
+    if (!r.ok) return [];
+    const meta = await r.json();
+    const content = JSON.parse(Buffer.from(meta.content, 'base64').toString('utf8'));
+    return (content.items ?? []).filter(i => supers.includes(i.super));
+  } catch { return []; }
 }
 
 // ── Disparar GitHub Actions (Playwright para Disco + TI) ──────────────────
@@ -184,36 +126,40 @@ export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).end();
 
   const t0 = Date.now();
-  const [tata, eldorado, disco, ti] = await Promise.allSettled([
+
+  // Raspar lo que puede el serverless (Tata + ElDorado) Y cargar cache de TI+Disco
+  const [tataRes, eldoradoRes, cachedRes] = await Promise.allSettled([
     scrapeTata(),
     scrapeVtex('eldorado', 'www.eldorado.com.uy'),
-    scrapeVtex('disco', 'www.disco.com.uy'),
-    scrapeTiendaInglesa(),
+    loadCachedItems(['tiendainglesa', 'disco']),
   ]);
 
-  const scrapeResults = [
-    { name: 'tata',          ok: tata.status === 'fulfilled',     count: tata.value?.length ?? 0 },
-    { name: 'eldorado',      ok: eldorado.status === 'fulfilled',  count: eldorado.value?.length ?? 0 },
-    { name: 'disco',         ok: disco.status === 'fulfilled',     count: disco.value?.length ?? 0 },
-    { name: 'tiendainglesa', ok: ti.status === 'fulfilled',        count: ti.value?.length ?? 0 },
-  ];
+  const freshTata     = tataRes.value ?? [];
+  const freshEldorado = eldoradoRes.value ?? [];
+  const cached        = cachedRes.value ?? [];
 
-  const items = [
-    ...(tata.value ?? []),
-    ...(eldorado.value ?? []),
-    ...(disco.value ?? []),
-    ...(ti.value ?? []),
+  const cachedTI    = cached.filter(i => i.super === 'tiendainglesa');
+  const cachedDisco = cached.filter(i => i.super === 'disco');
+
+  const items = [...freshTata, ...freshEldorado, ...cachedTI, ...cachedDisco];
+
+  const scrapeResults = [
+    { name: 'tata',          ok: tataRes.status === 'fulfilled',     count: freshTata.length,     fresh: true },
+    { name: 'eldorado',      ok: eldoradoRes.status === 'fulfilled',  count: freshEldorado.length, fresh: true },
+    { name: 'tiendainglesa', ok: cachedTI.length > 0,                count: cachedTI.length,      fresh: false },
+    { name: 'disco',         ok: cachedDisco.length > 0,             count: cachedDisco.length,   fresh: false },
   ];
 
   const generatedAt = new Date().toISOString();
   const payload = { brands: ['artico','lekker'], groups: { artico:['artico'], lekker:['lekker'] }, generatedAt, items, scrapeResults };
 
+  // Guardar datos frescos en GitHub (merge automático — no pisa TI/Disco)
   commitToGitHub(payload).catch(() => {});
 
-  // Dispara GitHub Actions en background para raspar Disco + TI con Playwright
+  // Disparar GitHub Actions para actualizar TI y Disco en background
   triggerGitHubActions().catch(() => {});
 
   const ms = Date.now() - t0;
-  console.log(`Scraping completado en ${ms}ms — ${items.length} productos (${scrapeResults.map(s=>`${s.name}:${s.count}`).join(', ')})`);
-  return res.status(200).json({ ...payload, playwrightTriggered: true });
+  console.log(`Scraping ${ms}ms — tata:${freshTata.length} eldorado:${freshEldorado.length} ti_cached:${cachedTI.length} disco_cached:${cachedDisco.length}`);
+  return res.status(200).json(payload);
 }
