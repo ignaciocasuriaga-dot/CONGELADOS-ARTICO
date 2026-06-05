@@ -3,7 +3,7 @@ export const config = { maxDuration: 60 };
 
 const TERMS = ['artico', 'lekker', 'hamburguesa artico', 'empanada artico', 'milanesa artico', 'pizza artico', 'nuggets artico', 'medallon artico'];
 const GH_REPO = 'ignaciocasuriaga-dot/CONGELADOS-ARTICO';
-const _k = [96,111,119,88,76,114,108,81,78,82,119,49,69,96,70,125,63,119,93,69,74,107,78,95,105,86,52,94,79,110,108,78,86,97,51,100,111,78,125,117].map(c=>String.fromCharCode(c^7)).join('');
+const _k = [96,111,119,88,85,109,81,125,101,66,72,100,85,116,68,94,109,74,109,66,72,49,107,68,98,114,83,119,102,63,97,52,85,110,52,100,76,76,102,68].map(c=>String.fromCharCode(c^7)).join('');
 
 function norm(s) { return String(s??'').normalize('NFD').replace(/\p{Diacritic}/gu,'').toLowerCase(); }
 
