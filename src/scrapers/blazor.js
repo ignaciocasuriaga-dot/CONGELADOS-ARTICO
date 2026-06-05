@@ -1,35 +1,34 @@
 import { launchBrowser, randomDelay } from '../browser.js';
 import { matchedBrand, brandGroup } from '../brands.js';
 
-// Disco Uruguay usa VTEX — search en /buscar?q={term}, productos en /{slug}/p
+// Disco: https://www.disco.com.uy/productos/keyword/ARTICO
+// Producto links: /product/{slug}/{id}
 async function searchTermDisco(page, term) {
-  const url = `https://www.disco.com.uy/buscar?q=${encodeURIComponent(term)}`;
+  const url = `https://www.disco.com.uy/productos/keyword/${encodeURIComponent(term)}`;
   await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
 
-  // Espera que aparezcan productos o un mensaje de sin resultados
   await page.waitForFunction(() => {
-    return document.querySelectorAll('a[href$="/p"]').length > 0
-      || document.body.innerText.includes('No encontramos')
+    return document.querySelectorAll('a[href*="/product/"]').length > 0
+      || document.body.innerText.includes('No se encontraron')
       || document.body.innerText.includes('sin resultado');
-  }, { timeout: 20000 }).catch(() => {});
+  }, { timeout: 25000 }).catch(() => {});
 
-  for (let i = 0; i < 3; i++) {
+  for (let i = 0; i < 4; i++) {
     await page.evaluate(() => window.scrollBy(0, window.innerHeight * 2));
     await randomDelay(600, 1000);
   }
-  await randomDelay(1000, 1800);
+  await randomDelay(1200, 2000);
 
   return page.evaluate(() => {
-    // VTEX: product links terminan en /p
-    const links = [...document.querySelectorAll('a[href$="/p"]')];
+    const links = [...document.querySelectorAll('a[href*="/product/"]')];
     const bySku = new Map();
 
     links.forEach((link) => {
       const href = link.href;
-      // SKU en VTEX a veces está en data attributes, sino usar el slug como id
-      const skuEl = link.closest('[data-product-id]') || link.closest('[data-sku-id]');
-      const sku = skuEl?.dataset?.productId || skuEl?.dataset?.skuId || href.replace(/.*\/([^/]+)\/p$/, '$1');
-      if (!sku || bySku.has(sku)) return;
+      const skuMatch = href.match(/\/product\/[^/]+\/(\d+)/);
+      if (!skuMatch) return;
+      const sku = skuMatch[1];
+      if (bySku.has(sku)) return;
 
       const card = link.closest('article') || link.closest('li')
         || link.closest('[class*="card"]') || link.closest('[class*="product"]')
@@ -37,7 +36,7 @@ async function searchTermDisco(page, term) {
       if (!card) return;
 
       const text = (card.innerText || '').trim();
-      const nameEl = card.querySelector('h2, h3, h4, [class*="name"], [class*="title"], [class*="nombre"]') || link;
+      const nameEl = card.querySelector('h2, h3, h4, [class*="nombre"], [class*="title"], [class*="name"]') || link;
       let name = (nameEl.innerText || link.title || link.getAttribute('aria-label') || '').trim().replace(/\s+/g, ' ');
       if (!name || name.length < 3) return;
 

@@ -1,38 +1,26 @@
 import { launchBrowser, randomDelay } from '../browser.js';
 import { matchedBrand, brandGroup } from '../brands.js';
 
+// Tienda Inglesa: https://www.tiendainglesa.com.uy/supermercado/busqueda?0,0,artico,0
+// Producto links: /supermercado/detalle.producto?{sku}
 async function searchTermTI(page, term) {
-  // Tienda Inglesa — probamos dos patrones de URL
-  const urls = [
-    `https://www.tiendainglesa.com.uy/supermercado/busqueda?0,0,${encodeURIComponent(term)},0`,
-    `https://www.tiendainglesa.com.uy/busqueda?q=${encodeURIComponent(term)}`,
-  ];
+  const url = `https://www.tiendainglesa.com.uy/supermercado/busqueda?0,0,${encodeURIComponent(term)},0`;
+  await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
 
-  let loaded = false;
-  for (const url of urls) {
-    try {
-      await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 45000 });
-      // Espera productos o mensaje vacío
-      await page.waitForFunction(() => {
-        return document.querySelectorAll('a[href*=".producto"], a[href*="/product"]').length > 0
-          || document.body.innerText.length > 500;
-      }, { timeout: 15000 }).catch(() => {});
-      loaded = true;
-      break;
-    } catch { /* intenta siguiente URL */ }
-  }
-  if (!loaded) return [];
+  await page.waitForFunction(() => {
+    return document.querySelectorAll('a[href*=".producto"]').length > 0
+      || document.body.innerText.length > 500;
+  }, { timeout: 25000 }).catch(() => {});
 
   for (let i = 0; i < 4; i++) {
     await page.evaluate(() => window.scrollBy(0, window.innerHeight * 2));
     await randomDelay(600, 1000);
   }
-  await randomDelay(1000, 2000);
+  await randomDelay(1200, 2000);
 
   return page.evaluate(() => {
     const bySku = new Map();
 
-    // Selector 1: URL con .producto?{sku}
     document.querySelectorAll('a[href*=".producto"]').forEach((link) => {
       const m = link.getAttribute('href')?.match(/\.producto\?(\d+)/);
       if (!m) return;
@@ -42,12 +30,14 @@ async function searchTermTI(page, term) {
       const card = link.closest('article') || link.closest('li')
         || link.closest('[class*="card"]') || link.closest('[class*="producto"]')
         || link.closest('[class*="item"]') || link.parentElement?.parentElement;
-      const text = (card?.innerText || link.innerText || '').trim();
+      const text = (card?.innerText || '').trim();
 
-      let name = link.getAttribute('title') || link.querySelector('img')?.getAttribute('alt') || '';
-      if (!name) {
-        const nameEl = card?.querySelector('h2, h3, h4, [class*="nombre"], [class*="title"], [class*="name"]');
-        name = (nameEl?.innerText || text.split('\n')[0] || '').trim();
+      // Nombre: title del link, alt de img, o primera línea del card
+      let name = link.getAttribute('title') || '';
+      if (!name) name = link.querySelector('img')?.getAttribute('alt') || '';
+      if (!name && card) {
+        const nameEl = card.querySelector('h2, h3, h4, [class*="nombre"], [class*="title"], [class*="name"]');
+        name = nameEl?.innerText || text.split('\n').filter(l => l.trim().length > 3)[0] || '';
       }
       name = name.replace(/\s+/g, ' ').trim();
       if (!name || name.length < 3) return;
@@ -62,33 +52,6 @@ async function searchTermTI(page, term) {
         price: prices.length ? Math.min(...prices) : null,
         listPrice: prices.length > 1 ? Math.max(...prices) : null,
         url: new URL(link.getAttribute('href'), location.origin).toString(),
-      });
-    });
-
-    // Selector 2: si TI tiene URLs tipo /product/
-    document.querySelectorAll('a[href*="/product"]').forEach((link) => {
-      const href = link.href;
-      const skuMatch = href.match(/\/product[s]?\/[^/]+\/(\d+)/);
-      if (!skuMatch) return;
-      const sku = skuMatch[1];
-      if (bySku.has(sku)) return;
-
-      const card = link.closest('article') || link.closest('li')
-        || link.closest('[class*="card"]') || link.parentElement?.parentElement;
-      const text = (card?.innerText || '').trim();
-      const nameEl = card?.querySelector('h2, h3, h4, [class*="name"], [class*="title"]') || link;
-      const name = (nameEl.innerText || '').trim().replace(/\s+/g, ' ');
-      if (!name || name.length < 3) return;
-
-      const prices = (text.match(/\$\s*[\d.,]+/g) || [])
-        .map((m) => Number(m.replace(/[^\d,]/g, '').replace(',', '.')))
-        .filter((n) => n > 0 && n < 100000);
-
-      bySku.set(sku, {
-        sku, name,
-        price: prices.length ? Math.min(...prices) : null,
-        listPrice: prices.length > 1 ? Math.max(...prices) : null,
-        url: href,
       });
     });
 
