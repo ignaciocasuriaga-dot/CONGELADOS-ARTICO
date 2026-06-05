@@ -1,0 +1,15 @@
+node_modules/
+data/recon/
+data/recon_search/
+data/catalog/
+data/output/
+public/data/latest.html
+*.log
+.env
+.DS_Store
+.vercel
+.claude/
+.playwright-mcp/
+memory/
+
+.vercel

@@ -1,0 +1,21 @@
+{
+  "name": "artico-retail-watch",
+  "version": "0.1.0",
+  "description": "Monitor de precios de Congelados Artico y Helados Lekker en supermercados uruguayos",
+  "type": "module",
+  "scripts": {
+    "start": "node src/main.js",
+    "scrape": "node src/main.js",
+    "scrape:tata": "node src/scrapers/tata.js",
+    "scrape:tiendainglesa": "node src/scrapers/tiendainglesa.js",
+    "scrape:disco": "node src/scrapers/blazor.js disco",
+    "scrape:eldorado": "node src/scrapers/eldorado.js"
+  },
+  "dependencies": {
+    "playwright": "^1.49.0",
+    "playwright-extra": "^4.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2",
+    "axios": "^1.7.9",
+    "p-limit": "^6.2.0"
+  }
+}

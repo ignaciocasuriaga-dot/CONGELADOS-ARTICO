@@ -1,0 +1,57 @@
+name: Scrape Artico Prices
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: scrape
+  cancel-in-progress: false
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Scrape
+        run: node src/main.js
+
+      - name: Telegram notify if configured
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          ALERT_THRESHOLD_PCT: ${{ vars.ALERT_THRESHOLD_PCT || '5' }}
+        run: node src/notify.js
+        continue-on-error: true
+
+      - name: Commit and push public data
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/data
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git commit -m "chore: actualizar precios Artico $(date -u +%Y-%m-%dT%H:%M)Z"
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push && exit 0
+            echo "Push failed (attempt $i), waiting 5s..."
+            sleep 5
+          done
+          exit 1

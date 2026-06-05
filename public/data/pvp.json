@@ -1,0 +1,2751 @@
+{
+  "generatedAt": "2026-06-01T00:00:00.000Z",
+  "vigencia": "Junio 2026",
+  "rows": [
+    {
+      "super": "tata",
+      "sheet": "Panes",
+      "sku": "504172",
+      "ean": "7730117007557",
+      "skuCadena": "1000056104",
+      "producto": "Pan Lacteado 1p 480g BOLSA LS",
+      "pvp": 125.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Panes",
+      "sku": "505795",
+      "ean": "7730117007564",
+      "skuCadena": "1000056111",
+      "producto": "Pan Integral Familiar 1p 550g BOLSA LS",
+      "pvp": 159.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Panes",
+      "sku": "503974",
+      "ean": "7730117007229",
+      "skuCadena": "1000431742",
+      "producto": "Pan Rallado Comun 1p 400g Bolsa LS",
+      "pvp": 119.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Panes",
+      "sku": "503975",
+      "ean": "7730117007236",
+      "skuCadena": "1000420760",
+      "producto": "Pan Rallado Comun 1p 800g Bolsa LS",
+      "pvp": 179.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Panes",
+      "sku": "503973",
+      "ean": "7730117007243",
+      "skuCadena": "1000420759",
+      "producto": "Pan Rallado Saborizado 1p 400g Bolsa LS",
+      "pvp": 125.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Panes",
+      "sku": "503972",
+      "ean": "7730117007250",
+      "skuCadena": "1000420823",
+      "producto": "Pan Rallado Saborizado 1p 800g Bolsa LS",
+      "pvp": 189.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Panes",
+      "sku": "503189",
+      "ean": "7730117001135",
+      "skuCadena": "1000056128",
+      "producto": "Pan Viena 8p 210g FLOW LSO",
+      "pvp": 119.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Panes",
+      "sku": "503447",
+      "ean": "7730117006581",
+      "skuCadena": "1000056144",
+      "producto": "Tortuga 6p 280g Flow LS",
+      "pvp": 119.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Panes",
+      "sku": "964664",
+      "ean": "7730117008240",
+      "skuCadena": "1000056115",
+      "producto": "Pan Blanco Mediano 1p 400g BOLSA BIM",
+      "pvp": 128.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Panes",
+      "sku": "964663",
+      "ean": "7730117008257",
+      "skuCadena": "1000056114",
+      "producto": "Pan Blanco 1p 590g BOLSA BIM",
+      "pvp": 159.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Panes",
+      "sku": "964662",
+      "ean": "7730117008226",
+      "skuCadena": "1000056099",
+      "producto": "Pan Integral Uy 1p 620g BOLSA BIM",
+      "pvp": 172.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Panes",
+      "sku": "964668",
+      "ean": "7730117008400",
+      "skuCadena": "1000415415",
+      "producto": "Pan Integral CerCero 1p 580g BOLSA BIM",
+      "pvp": 196.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Panes",
+      "sku": "964667",
+      "ean": "7730117008394",
+      "skuCadena": "1000415416",
+      "producto": "Pan Blanco CerCer 1p 560g BOLSA BIM",
+      "pvp": 182.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Panes",
+      "sku": "964666",
+      "ean": "7730117008233",
+      "skuCadena": "1000056117",
+      "producto": "Pan Blanco Sin Sal 1p 400g BOLSA BIM",
+      "pvp": 164.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Panes",
+      "sku": "503614",
+      "ean": "7730117008196",
+      "skuCadena": "1000056210",
+      "producto": "Pan Vital Semillas MM 1p 510g BOLSA BIM",
+      "pvp": 208.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Panes",
+      "sku": "503717",
+      "ean": "7730117008202",
+      "skuCadena": "1000412164",
+      "producto": "Pan MixCereales Vital 1p 510g BOLSA BIM",
+      "pvp": 208.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Panes",
+      "sku": "964612",
+      "ean": "7730117008370",
+      "skuCadena": "1000056126",
+      "producto": "Pan Blanco Artesano MM 1p 500g BOLSA BIM",
+      "pvp": 189.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Panes",
+      "sku": "964613",
+      "ean": "7730117008387",
+      "skuCadena": "1000370046",
+      "producto": "Pan Integ Artesano MM 1p 500g BOLSA BIM",
+      "pvp": 196.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Panes",
+      "sku": "506482",
+      "ean": "7730117008073",
+      "skuCadena": "1000056141",
+      "producto": "Pan Viena 8p 300g FLOW BIM",
+      "pvp": 126.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Panes",
+      "sku": "506481",
+      "ean": "7730117006598",
+      "skuCadena": "1000056143",
+      "producto": "Tortuga 6p 330g FLOW BIM",
+      "pvp": 126.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Panes",
+      "sku": "506480",
+      "ean": "7730117007113",
+      "skuCadena": "1000168829",
+      "producto": "Tortuga Sesamo 6p 330g FLOW BIM",
+      "pvp": 132.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Panes",
+      "sku": "503752",
+      "ean": "7730117007137",
+      "skuCadena": "1000413356",
+      "producto": "Pan Hamb 4p 240g FLOW BIM",
+      "pvp": 114.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Panes",
+      "sku": "503746",
+      "ean": "7730117007120",
+      "skuCadena": "1000413355",
+      "producto": "Pan Brioche 4p 240g Flow BIM",
+      "pvp": 114.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Panes",
+      "sku": "504397",
+      "ean": "7730117007823",
+      "skuCadena": "1000435642",
+      "producto": "Pan de Papa Artesano 4p 300g FLOW BIM",
+      "pvp": 114.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Panes",
+      "sku": "504382",
+      "ean": "7840131003050",
+      "skuCadena": "1000056217",
+      "producto": "Rapiditas Clasicas 1p 310g BOLSA BIM EXP",
+      "pvp": 164.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Panes",
+      "sku": "21478",
+      "ean": "7793890258264",
+      "skuCadena": "",
+      "producto": "Rapiditas Clasic 1p 275g BOLSA BIM",
+      "pvp": 164.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Panes",
+      "sku": "504384",
+      "ean": "7840131003067",
+      "skuCadena": "1000056218",
+      "producto": "Rapiditas Light 1p 310g BOLSA BIM EXP",
+      "pvp": 164.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Panes",
+      "sku": "506413",
+      "ean": "7730117008066",
+      "skuCadena": "1000460962",
+      "producto": "Rap Chia Linaza 1p 270g BOLSA BIM EXP",
+      "pvp": 164.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Panes",
+      "sku": "504383",
+      "ean": "7730117006802",
+      "skuCadena": "1000363277",
+      "producto": "Tortilla Maxi 1p 420g BOLSA BIM EXP",
+      "pvp": 184.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Panes",
+      "sku": "504262",
+      "ean": "7793890259506",
+      "skuCadena": "1000054718",
+      "producto": "Vainillas 1p 444g FLOW BIM EXP",
+      "pvp": 309.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Panes",
+      "sku": "504254",
+      "ean": "7793890259490",
+      "skuCadena": "1000054719",
+      "producto": "Vainillas 1p 148g FLOW BIM EXP",
+      "pvp": 118.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Panes",
+      "sku": "502142",
+      "ean": "7793890260847",
+      "skuCadena": "1000528104",
+      "producto": "Vainillas 1p 74g FLOW BIM EXP",
+      "pvp": 64.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Panes",
+      "sku": "504462",
+      "ean": "7730117007878",
+      "skuCadena": "1000437782",
+      "producto": "Tortilla de Maiz 1p 270g BOLSA TR EXP",
+      "pvp": 152.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Panes",
+      "sku": "964818",
+      "ean": "7840131004538",
+      "skuCadena": "1000555454",
+      "producto": "Torti HarinaBurrera 6p 420g BOLSA TR EXP",
+      "pvp": 177.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Panes",
+      "sku": "964819",
+      "ean": "7840131002909",
+      "skuCadena": "1000555455",
+      "producto": "Torti HarinaFajitas 8p 240g BOLSA TR EXP",
+      "pvp": 152.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Panes",
+      "sku": "6246",
+      "ean": "7793890258943",
+      "skuCadena": "1000455400",
+      "producto": "MadalenaVainilla CS 1p 200g FLOW BIM EXP",
+      "pvp": 104.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Panes",
+      "sku": "5217",
+      "ean": "7793890258936",
+      "skuCadena": "1000455401",
+      "producto": "Madal Rellen DDL CS 1p 190g FLOW BIM EXP",
+      "pvp": 104.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Panes",
+      "sku": "964292",
+      "ean": "7793890262438",
+      "skuCadena": "",
+      "producto": "MadalenaVai Rell X1 1p 39g FLOW BIM EXP",
+      "pvp": 30.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Panes",
+      "sku": "964293",
+      "ean": "7793890262421",
+      "skuCadena": "",
+      "producto": "MadChoco Rell X1 1p 39g FLOW BIM EXP",
+      "pvp": 30.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7500810026571",
+      "skuCadena": "1000461444",
+      "producto": "TakisOriginal1p 56gFLOW BAR EXP",
+      "pvp": 60.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7500810026564",
+      "skuCadena": "1000461443",
+      "producto": "TakisFuego 1p 56gFLOW BAR EXP",
+      "pvp": 60.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7500810026588",
+      "skuCadena": "1000461537",
+      "producto": "TakisXplosion 1p 56gFLOW BAR EXP",
+      "pvp": 60.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7500810026700",
+      "skuCadena": "1000461578",
+      "producto": "Takis Fuego 1p 152g FLOW BAR EXP",
+      "pvp": 179.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7500810026601",
+      "skuCadena": "1000461608",
+      "producto": "TakisOriginal 1p 152g FLOW BAR EXP",
+      "pvp": 179.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7803403004445",
+      "skuCadena": "1000578438",
+      "producto": "Takis Intense Nacho1p 49g FLOW BAR",
+      "pvp": 60.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7803403004438",
+      "skuCadena": "1000580549",
+      "producto": "Takis Intense Nacho1p 190g FLOW BAR",
+      "pvp": 189.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7500810047965",
+      "skuCadena": "1000598509",
+      "producto": "Takis Blue Heat 1p 49g FLOW BAR EXP",
+      "pvp": 60.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7500810048788",
+      "skuCadena": "",
+      "producto": "Takis BcknRnch 1p 49g UY FLOW BAR EXP",
+      "pvp": 60.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7500810048795",
+      "skuCadena": "",
+      "producto": "Takis BcknRnch 1p 190g UY FLOW BAR",
+      "pvp": 189.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7840131004637",
+      "skuCadena": "1000562645",
+      "producto": "Merienda Hit 1p 25g DPY MHI EXP",
+      "pvp": 40.53
+    },
+    {
+      "super": "tata",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7840131004644",
+      "skuCadena": "1000562646",
+      "producto": "Merienda Hit 1p 37g DPY MHI EXP",
+      "pvp": 52.27
+    },
+    {
+      "super": "tata",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7730117008493",
+      "skuCadena": "",
+      "producto": "Alfajor Chocolate 1p 80g DPY HAV",
+      "pvp": 80.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7750727006665",
+      "skuCadena": "1000453916",
+      "producto": "Salmas Horneadas 12p 216g CJ SAN EXP",
+      "pvp": 279.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7803403004131",
+      "skuCadena": "1000363297",
+      "producto": "Salmas Clasicas 6P 108G Cj San",
+      "pvp": 156.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117006956",
+      "skuCadena": "1000369065",
+      "producto": "Mini Crackers clásicas 1p 300g FLOW MC",
+      "pvp": 106.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117006963",
+      "skuCadena": "1000385388",
+      "producto": "Mini Crackers semillas 1p 300g FLOW MC",
+      "pvp": 106.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117006888",
+      "skuCadena": "1000370883",
+      "producto": "Cuban Cracker 1p 330g FLOW MC",
+      "pvp": 109.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117006901",
+      "skuCadena": "1000369068",
+      "producto": "Galleta Salvado Tripack 1p 360g FLOW MC",
+      "pvp": 124.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117006895",
+      "skuCadena": "NO COMPRA",
+      "producto": "Galleta Selección de semillas Tripack 1p 375g FLOW MC",
+      "pvp": 144.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117007663",
+      "skuCadena": "1000434499",
+      "producto": "Gran Dulce Vainilla 1p 400g FLOW MC",
+      "pvp": 124.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117004891",
+      "skuCadena": "1000055004",
+      "producto": "Habanitos Agua 180g MC",
+      "pvp": 115.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117004907",
+      "skuCadena": "1000055005",
+      "producto": "Habanitos Queso 180g MC",
+      "pvp": 115.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117004914",
+      "skuCadena": "1000055009",
+      "producto": "Habanitos Jamon 180g MC",
+      "pvp": 115.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117004860",
+      "skuCadena": "1000055838",
+      "producto": "Finito Agua 100g Cj MC",
+      "pvp": 95.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117004884",
+      "skuCadena": "1000055839",
+      "producto": "Finito Salvado 100g MC",
+      "pvp": 95.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117004877",
+      "skuCadena": "1000257452",
+      "producto": "Grissin Finito Queso 100g MC",
+      "pvp": 95.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117004945",
+      "skuCadena": "1000055289",
+      "producto": "Grisines Gourmet Cebollas Asadas 120g",
+      "pvp": 105.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117004969",
+      "skuCadena": "1000055291",
+      "producto": "Grisines Gourmet Romero y Oliva 120g MC",
+      "pvp": 105.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117004976",
+      "skuCadena": "1000055292",
+      "producto": "Grisines Gourmet Manteca y Ciboullette 120g MC",
+      "pvp": 105.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117006970",
+      "skuCadena": "1000055842",
+      "producto": "Galleta Marie 1p 345g FLOW MC",
+      "pvp": 135.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117007786",
+      "skuCadena": "1000436794",
+      "producto": "Galleta Avena Mzana 1p 175g TUBO NUR EXP",
+      "pvp": 119.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117007779",
+      "skuCadena": "1000436795",
+      "producto": "Galleta Avena Pasas 1p 175g TUBO NUR EXP",
+      "pvp": 119.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117007793",
+      "skuCadena": "1000447139",
+      "producto": "Galleta Avena Choco 1p 175g TUBO NUR EXP",
+      "pvp": 119.0
+    },
+    {
+      "super": "tata",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730911985129",
+      "skuCadena": "1000461815",
+      "producto": "Donuts Chocolate Fresca 1p 50g FLOW PAG",
+      "pvp": 64.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Panes",
+      "sku": "",
+      "ean": "7730117007557",
+      "skuCadena": "",
+      "producto": "Pan Lacteado 1p 480g BOLSA LS",
+      "pvp": 125.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Panes",
+      "sku": "",
+      "ean": "7730117007564",
+      "skuCadena": "",
+      "producto": "Pan Integral Familiar 1p 550g BOLSA LS",
+      "pvp": 159.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Panes",
+      "sku": "",
+      "ean": "7730117007229",
+      "skuCadena": "",
+      "producto": "Pan Rallado Comun 1p 400g Bolsa LS",
+      "pvp": 119.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Panes",
+      "sku": "",
+      "ean": "7730117007236",
+      "skuCadena": "",
+      "producto": "Pan Rallado Comun 1p 800g Bolsa LS",
+      "pvp": 179.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Panes",
+      "sku": "",
+      "ean": "7730117007243",
+      "skuCadena": "",
+      "producto": "Pan Rallado Saborizado 1p 400g Bolsa LS",
+      "pvp": 125.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Panes",
+      "sku": "",
+      "ean": "7730117007250",
+      "skuCadena": "",
+      "producto": "Pan Rallado Saborizado 1p 800g Bolsa LS",
+      "pvp": 189.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Panes",
+      "sku": "",
+      "ean": "7730117001135",
+      "skuCadena": "",
+      "producto": "Pan Viena 8p 210g FLOW LSO",
+      "pvp": 119.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Panes",
+      "sku": "",
+      "ean": "7730117006581",
+      "skuCadena": "",
+      "producto": "Tortuga 6p 280g Flow LS",
+      "pvp": 119.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Panes",
+      "sku": "",
+      "ean": "7730117008240",
+      "skuCadena": "",
+      "producto": "Pan Blanco Mediano 1p 400g BOLSA BIM",
+      "pvp": 128.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Panes",
+      "sku": "",
+      "ean": "7730117008257",
+      "skuCadena": "",
+      "producto": "Pan Blanco 1p 590g BOLSA BIM",
+      "pvp": 159.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Panes",
+      "sku": "",
+      "ean": "7730117008226",
+      "skuCadena": "",
+      "producto": "Pan Integral Uy 1p 620g BOLSA BIM",
+      "pvp": 172.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Panes",
+      "sku": "",
+      "ean": "7730117008400",
+      "skuCadena": "",
+      "producto": "Pan Integral CerCero 1p 580g BOLSA BIM",
+      "pvp": 196.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Panes",
+      "sku": "",
+      "ean": "7730117008394",
+      "skuCadena": "",
+      "producto": "Pan Blanco CerCer 1p 560g BOLSA BIM",
+      "pvp": 182.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Panes",
+      "sku": "",
+      "ean": "7730117008233",
+      "skuCadena": "",
+      "producto": "Pan Blanco Sin Sal 1p 400g BOLSA BIM",
+      "pvp": 164.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Panes",
+      "sku": "",
+      "ean": "7730117008196",
+      "skuCadena": "",
+      "producto": "Pan Vital Semillas MM 1p 510g BOLSA BIM",
+      "pvp": 208.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Panes",
+      "sku": "",
+      "ean": "7730117008202",
+      "skuCadena": "",
+      "producto": "Pan MixCereales Vital 1p 510g BOLSA BIM",
+      "pvp": 208.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Panes",
+      "sku": "",
+      "ean": "7730117008370",
+      "skuCadena": "",
+      "producto": "Pan Blanco Artesano MM 1p 500g BOLSA BIM",
+      "pvp": 189.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Panes",
+      "sku": "",
+      "ean": "7730117008387",
+      "skuCadena": "",
+      "producto": "Pan Integ Artesano MM 1p 500g BOLSA BIM",
+      "pvp": 196.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Panes",
+      "sku": "",
+      "ean": "7730117008073",
+      "skuCadena": "",
+      "producto": "Pan Viena 8p 300g FLOW BIM",
+      "pvp": 126.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Panes",
+      "sku": "",
+      "ean": "7730117006598",
+      "skuCadena": "",
+      "producto": "Tortuga 6p 330g FLOW BIM",
+      "pvp": 126.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Panes",
+      "sku": "",
+      "ean": "7730117007113",
+      "skuCadena": "",
+      "producto": "Tortuga Sesamo 6p 330g FLOW BIM",
+      "pvp": 132.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Panes",
+      "sku": "",
+      "ean": "7730117007137",
+      "skuCadena": "",
+      "producto": "Pan Hamb 4p 240g FLOW BIM",
+      "pvp": 114.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Panes",
+      "sku": "",
+      "ean": "7730117007120",
+      "skuCadena": "",
+      "producto": "Pan Brioche 4p 240g Flow BIM",
+      "pvp": 114.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Panes",
+      "sku": "",
+      "ean": "7730117007823",
+      "skuCadena": "",
+      "producto": "Pan de Papa Artesano 4p 300g FLOW BIM",
+      "pvp": 114.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Panes",
+      "sku": "",
+      "ean": "7840131003050",
+      "skuCadena": "",
+      "producto": "Rapiditas Clasicas 1p 310g BOLSA BIM EXP",
+      "pvp": 164.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Panes",
+      "sku": "",
+      "ean": "7840131003067",
+      "skuCadena": "",
+      "producto": "Rapiditas Light 1p 310g BOLSA BIM EXP",
+      "pvp": 164.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Panes",
+      "sku": "",
+      "ean": "7730117008066",
+      "skuCadena": "",
+      "producto": "Rap Chia Linaza 1p 270g BOLSA BIM EXP",
+      "pvp": 164.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Panes",
+      "sku": "",
+      "ean": "7730117006802",
+      "skuCadena": "",
+      "producto": "Tortilla Maxi 1p 420g BOLSA BIM EXP",
+      "pvp": 184.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Panes",
+      "sku": "",
+      "ean": "7793890259506",
+      "skuCadena": "",
+      "producto": "Vainillas 1p 444g FLOW BIM EXP",
+      "pvp": 309.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Panes",
+      "sku": "",
+      "ean": "7793890259490",
+      "skuCadena": "",
+      "producto": "Vainillas 1p 148g FLOW BIM EXP",
+      "pvp": 118.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Panes",
+      "sku": "",
+      "ean": "7793890260847",
+      "skuCadena": "",
+      "producto": "Vainillas 1p 74g FLOW BIM EXP",
+      "pvp": 64.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Panes",
+      "sku": "",
+      "ean": "7730117007878",
+      "skuCadena": "",
+      "producto": "Tortilla de Maiz 1p 270g BOLSA TR EXP",
+      "pvp": 152.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Panes",
+      "sku": "",
+      "ean": "7840131004538",
+      "skuCadena": "",
+      "producto": "Torti HarinaBurrera 6p 420g BOLSA TR EXP",
+      "pvp": 177.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Panes",
+      "sku": "",
+      "ean": "7840131002909",
+      "skuCadena": "",
+      "producto": "Torti HarinaFajitas 8p 240g BOLSA TR EXP",
+      "pvp": 152.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Panes",
+      "sku": "",
+      "ean": "7793890258943",
+      "skuCadena": "",
+      "producto": "MadalenaVainilla CS 1p 200g FLOW BIM EXP",
+      "pvp": 104.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Panes",
+      "sku": "",
+      "ean": "7793890258936",
+      "skuCadena": "",
+      "producto": "Madal Rellen DDL CS 1p 190g FLOW BIM EXP",
+      "pvp": 104.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Panes",
+      "sku": "",
+      "ean": "7793890262438",
+      "skuCadena": "",
+      "producto": "MadalenaVai Rell X1 1p 39g FLOW BIM EXP",
+      "pvp": 30.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Panes",
+      "sku": "",
+      "ean": "7793890262421",
+      "skuCadena": "",
+      "producto": "MadChoco Rell X1 1p 39g FLOW BIM EXP",
+      "pvp": 30.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7500810026571",
+      "skuCadena": "379279",
+      "producto": "TakisOriginal1p 56gFLOW BAR EXP",
+      "pvp": 60.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7500810026564",
+      "skuCadena": "379282",
+      "producto": "TakisFuego 1p 56gFLOW BAR EXP",
+      "pvp": 60.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7500810026588",
+      "skuCadena": "379283",
+      "producto": "TakisXplosion 1p 56gFLOW BAR EXP",
+      "pvp": 60.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7500810026700",
+      "skuCadena": "379280",
+      "producto": "Takis Fuego 1p 152g FLOW BAR EXP",
+      "pvp": 179.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7500810026601",
+      "skuCadena": "379284",
+      "producto": "TakisOriginal 1p 152g FLOW BAR EXP",
+      "pvp": 179.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7803403004445",
+      "skuCadena": "981290",
+      "producto": "Takis Intense Nacho1p 49g FLOW BAR",
+      "pvp": 60.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7803403004438",
+      "skuCadena": "981291",
+      "producto": "Takis Intense Nacho1p 190g FLOW BAR",
+      "pvp": 189.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7500810047965",
+      "skuCadena": "",
+      "producto": "Takis Blue Heat 1p 49g FLOW BAR EXP",
+      "pvp": 60.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7500810048788",
+      "skuCadena": "",
+      "producto": "Takis BcknRnch 1p 49g UY FLOW BAR EXP",
+      "pvp": 60.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7500810048795",
+      "skuCadena": "",
+      "producto": "Takis BcknRnch 1p 190g UY FLOW BAR",
+      "pvp": 189.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7840131004637",
+      "skuCadena": "662574",
+      "producto": "Merienda Hit 1p 25g DPY MHI EXP",
+      "pvp": 40.53
+    },
+    {
+      "super": "disco",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7840131004644",
+      "skuCadena": "686040",
+      "producto": "Merienda Hit 1p 37g DPY MHI EXP",
+      "pvp": 52.27
+    },
+    {
+      "super": "disco",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7730117008493",
+      "skuCadena": "",
+      "producto": "Alfajor Chocolate 1p 80g DPY HAV",
+      "pvp": 80.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "",
+      "skuCadena": "",
+      "producto": "Salmas Horneadas 12p 216g CJ SAN EXP",
+      "pvp": 279.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "",
+      "skuCadena": "",
+      "producto": "Salmas Clasicas 6P 108G Cj San",
+      "pvp": 156.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "",
+      "skuCadena": "",
+      "producto": "Mini Crackers clásicas 1p 300g FLOW MC",
+      "pvp": 106.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "",
+      "skuCadena": "",
+      "producto": "Mini Crackers semillas 1p 300g FLOW MC",
+      "pvp": 106.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "",
+      "skuCadena": "",
+      "producto": "Cuban Cracker 1p 330g FLOW MC",
+      "pvp": 109.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "",
+      "skuCadena": "",
+      "producto": "Galleta Salvado Tripack 1p 360g FLOW MC",
+      "pvp": 124.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "",
+      "skuCadena": "",
+      "producto": "Galleta Selección de semillas Tripack 1p 375g FLOW MC",
+      "pvp": 144.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "",
+      "skuCadena": "",
+      "producto": "Gran Dulce Vainilla 1p 400g FLOW MC",
+      "pvp": 124.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "",
+      "skuCadena": "",
+      "producto": "Habanitos Agua 180g MC",
+      "pvp": 115.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "",
+      "skuCadena": "",
+      "producto": "Habanitos Queso 180g MC",
+      "pvp": 115.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "",
+      "skuCadena": "",
+      "producto": "Habanitos Jamon 180g MC",
+      "pvp": 115.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "",
+      "skuCadena": "",
+      "producto": "Finito Agua 100g Cj MC",
+      "pvp": 95.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "",
+      "skuCadena": "",
+      "producto": "Finito Salvado 100g MC",
+      "pvp": 95.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "",
+      "skuCadena": "",
+      "producto": "Grissin Finito Queso 100g MC",
+      "pvp": 95.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "",
+      "skuCadena": "",
+      "producto": "Grisines Gourmet Cebollas Asadas 120g",
+      "pvp": 105.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "",
+      "skuCadena": "",
+      "producto": "Grisines Gourmet Romero y Oliva 120g MC",
+      "pvp": 105.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "",
+      "skuCadena": "",
+      "producto": "Grisines Gourmet Manteca y Ciboullette 120g MC",
+      "pvp": 105.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "",
+      "skuCadena": "",
+      "producto": "Galleta Marie 1p 345g FLOW MC",
+      "pvp": 135.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "",
+      "skuCadena": "",
+      "producto": "Galleta Avena Mzana 1p 175g TUBO NUR EXP",
+      "pvp": 119.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "",
+      "skuCadena": "",
+      "producto": "Galleta Avena Pasas 1p 175g TUBO NUR EXP",
+      "pvp": 119.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "",
+      "skuCadena": "",
+      "producto": "Galleta Avena Choco 1p 175g TUBO NUR EXP",
+      "pvp": 119.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "",
+      "skuCadena": "",
+      "producto": "Donuts Chocolate Fresca 1p 50g FLOW PAG",
+      "pvp": 64.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Chocolates",
+      "sku": "",
+      "ean": "",
+      "skuCadena": "662894",
+      "producto": "Brownie 1p 62g Flow NUR EXP",
+      "pvp": 46.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Chocolates",
+      "sku": "",
+      "ean": "",
+      "skuCadena": "662895",
+      "producto": "Braunichoc 1p 35g Flow NUR EXP",
+      "pvp": 36.0
+    },
+    {
+      "super": "disco",
+      "sheet": "Chocolates",
+      "sku": "",
+      "ean": "",
+      "skuCadena": "601416",
+      "producto": "Brownie Sin Azucar 1p 50g BOLSA NUR EXP",
+      "pvp": 65.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Panes",
+      "sku": "504172",
+      "ean": "7730117007557",
+      "skuCadena": "565871",
+      "producto": "Pan Lacteado 1p 480g BOLSA LS",
+      "pvp": 125.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Panes",
+      "sku": "505795",
+      "ean": "7730117007564",
+      "skuCadena": "565117",
+      "producto": "Pan Integral Familiar 1p 550g BOLSA LS",
+      "pvp": 159.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Panes",
+      "sku": "504457",
+      "ean": "7730117008172",
+      "skuCadena": "601165",
+      "producto": "Pan Lacteado 1p 300g BOLSA LS",
+      "pvp": 99.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Panes",
+      "sku": "503974",
+      "ean": "7730117007229",
+      "skuCadena": "545587",
+      "producto": "Pan Rallado Comun 1p 400g Bolsa LS",
+      "pvp": 119.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Panes",
+      "sku": "503975",
+      "ean": "7730117007236",
+      "skuCadena": "545589",
+      "producto": "Pan Rallado Comun 1p 800g Bolsa LS",
+      "pvp": 179.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Panes",
+      "sku": "503973",
+      "ean": "7730117007243",
+      "skuCadena": "545588",
+      "producto": "Pan Rallado Saborizado 1p 400g Bolsa LS",
+      "pvp": 125.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Panes",
+      "sku": "503972",
+      "ean": "7730117007250",
+      "skuCadena": "545590",
+      "producto": "Pan Rallado Saborizado 1p 800g Bolsa LS",
+      "pvp": 189.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Panes",
+      "sku": "503189",
+      "ean": "7730117001135",
+      "skuCadena": "38066",
+      "producto": "Pan Viena 8p 210g FLOW LSO",
+      "pvp": 119.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Panes",
+      "sku": "503447",
+      "ean": "7730117006581",
+      "skuCadena": "38072",
+      "producto": "Tortuga 6p 280g Flow LS",
+      "pvp": 119.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Panes",
+      "sku": "964664",
+      "ean": "7730117008240",
+      "skuCadena": "61722",
+      "producto": "Pan Blanco Mediano 1p 400g BOLSA BIM",
+      "pvp": 128.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Panes",
+      "sku": "964663",
+      "ean": "7730117008257",
+      "skuCadena": "565118",
+      "producto": "Pan Blanco 1p 590g BOLSA BIM",
+      "pvp": 159.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Panes",
+      "sku": "964662",
+      "ean": "7730117008226",
+      "skuCadena": "62074",
+      "producto": "Pan Integral Uy 1p 620g BOLSA BIM",
+      "pvp": 172.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Panes",
+      "sku": "964668",
+      "ean": "7730117008400",
+      "skuCadena": "541426",
+      "producto": "Pan Integral CerCero 1p 580g BOLSA BIM",
+      "pvp": 196.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Panes",
+      "sku": "964667",
+      "ean": "7730117008394",
+      "skuCadena": "541427",
+      "producto": "Pan Blanco CerCer 1p 560g BOLSA BIM",
+      "pvp": 182.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Panes",
+      "sku": "964666",
+      "ean": "7730117008233",
+      "skuCadena": "52924",
+      "producto": "Pan Blanco Sin Sal 1p 400g BOLSA BIM",
+      "pvp": 164.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Panes",
+      "sku": "503614",
+      "ean": "7730117008196",
+      "skuCadena": "55921",
+      "producto": "Pan Vital Semillas MM 1p 510g BOLSA BIM",
+      "pvp": 208.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Panes",
+      "sku": "503717",
+      "ean": "7730117008202",
+      "skuCadena": "533462",
+      "producto": "Pan MixCereales Vital 1p 510g BOLSA BIM",
+      "pvp": 208.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Panes",
+      "sku": "964612",
+      "ean": "7730117008370",
+      "skuCadena": "459977",
+      "producto": "Pan Blanco Artesano MM 1p 500g BOLSA BIM",
+      "pvp": 189.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Panes",
+      "sku": "964613",
+      "ean": "7730117008387",
+      "skuCadena": "525201",
+      "producto": "Pan Integ Artesano MM 1p 500g BOLSA BIM",
+      "pvp": 196.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Panes",
+      "sku": "506482",
+      "ean": "7730117008073",
+      "skuCadena": "570746",
+      "producto": "Pan Viena 8p 300g FLOW BIM",
+      "pvp": 126.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Panes",
+      "sku": "506481",
+      "ean": "7730117006598",
+      "skuCadena": "570745",
+      "producto": "Tortuga 6p 330g FLOW BIM",
+      "pvp": 126.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Panes",
+      "sku": "506480",
+      "ean": "7730117007113",
+      "skuCadena": "570713",
+      "producto": "Tortuga Sesamo 6p 330g FLOW BIM",
+      "pvp": 132.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Panes",
+      "sku": "503752",
+      "ean": "7730117007137",
+      "skuCadena": "541518",
+      "producto": "Pan Hamb 4p 240g FLOW BIM",
+      "pvp": 114.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Panes",
+      "sku": "503746",
+      "ean": "7730117007120",
+      "skuCadena": "541517",
+      "producto": "Pan Brioche 4p 240g Flow BIM",
+      "pvp": 114.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Panes",
+      "sku": "504397",
+      "ean": "7730117007823",
+      "skuCadena": "560386",
+      "producto": "Pan de Papa Artesano 4p 300g FLOW BIM",
+      "pvp": 114.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Panes",
+      "sku": "504382",
+      "ean": "7840131003050",
+      "skuCadena": "43550",
+      "producto": "Rapiditas Clasicas 1p 310g BOLSA BIM EXP",
+      "pvp": 164.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Panes",
+      "sku": "21478",
+      "ean": "7793890258264",
+      "skuCadena": "",
+      "producto": "Rapiditas Clasic 1p 275g BOLSA BIM",
+      "pvp": 164.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Panes",
+      "sku": "504384",
+      "ean": "7840131003067",
+      "skuCadena": "43549",
+      "producto": "Rapiditas Light 1p 310g BOLSA BIM EXP",
+      "pvp": 164.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Panes",
+      "sku": "506413",
+      "ean": "7730117008066",
+      "skuCadena": "583467",
+      "producto": "Rap Chia Linaza 1p 270g BOLSA BIM EXP",
+      "pvp": 164.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Panes",
+      "sku": "504383",
+      "ean": "7730117006802",
+      "skuCadena": "514413",
+      "producto": "Tortilla Maxi 1p 420g BOLSA BIM EXP",
+      "pvp": 184.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Panes",
+      "sku": "504262",
+      "ean": "7793890259506",
+      "skuCadena": "416806",
+      "producto": "Vainillas 1p 444g FLOW BIM EXP",
+      "pvp": 309.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Panes",
+      "sku": "504254",
+      "ean": "7793890259490",
+      "skuCadena": "488286",
+      "producto": "Vainillas 1p 148g FLOW BIM EXP",
+      "pvp": 118.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Panes",
+      "sku": "502142",
+      "ean": "7793890260847",
+      "skuCadena": "590865",
+      "producto": "Vainillas 1p 74g FLOW BIM EXP",
+      "pvp": 64.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Panes",
+      "sku": "504462",
+      "ean": "7730117007878",
+      "skuCadena": "562711",
+      "producto": "Tortilla de Maiz 1p 270g BOLSA TR EXP",
+      "pvp": 152.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Panes",
+      "sku": "964818",
+      "ean": "7840131004538",
+      "skuCadena": "595670",
+      "producto": "Torti HarinaBurrera 6p 420g BOLSA TR EXP",
+      "pvp": 177.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Panes",
+      "sku": "964819",
+      "ean": "7840131002909",
+      "skuCadena": "58301",
+      "producto": "Torti HarinaFajitas 8p 240g BOLSA TR EXP",
+      "pvp": 152.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Panes",
+      "sku": "6246",
+      "ean": "7793890258943",
+      "skuCadena": "502097",
+      "producto": "MadalenaVainilla CS 1p 200g FLOW BIM EXP",
+      "pvp": 104.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Panes",
+      "sku": "5217",
+      "ean": "7793890258936",
+      "skuCadena": "502109",
+      "producto": "Madal Rellen DDL CS 1p 190g FLOW BIM EXP",
+      "pvp": 104.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Panes",
+      "sku": "964292",
+      "ean": "7793890262438",
+      "skuCadena": "",
+      "producto": "MadalenaVai Rell X1 1p 39g FLOW BIM EXP",
+      "pvp": 30.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Panes",
+      "sku": "964293",
+      "ean": "7793890262421",
+      "skuCadena": "",
+      "producto": "MadChoco Rell X1 1p 39g FLOW BIM EXP",
+      "pvp": 30.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Panes",
+      "sku": "503434",
+      "ean": "7730117006253",
+      "skuCadena": "515781",
+      "producto": "Brownie 1p 62g Flow NUR EXP",
+      "pvp": 46.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Panes",
+      "sku": "503436",
+      "ean": "7730117006260",
+      "skuCadena": "515784",
+      "producto": "Braunichoc 1p 35g Flow NUR EXP",
+      "pvp": 36.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Panes",
+      "sku": "504408",
+      "ean": "7730117007830",
+      "skuCadena": "NO COMPRA",
+      "producto": "Brownie Sin Azucar 1p 50g BOLSA NUR EXP",
+      "pvp": 65.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7500810026571",
+      "skuCadena": "575757",
+      "producto": "TakisOriginal1p 56gFLOW BAR EXP",
+      "pvp": 60.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7500810026564",
+      "skuCadena": "575758",
+      "producto": "TakisFuego 1p 56gFLOW BAR EXP",
+      "pvp": 60.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7500810026588",
+      "skuCadena": "575759",
+      "producto": "TakisXplosion 1p 56gFLOW BAR EXP",
+      "pvp": 60.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7500810026700",
+      "skuCadena": "575760",
+      "producto": "Takis Fuego 1p 152g FLOW BAR EXP",
+      "pvp": 179.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7500810026601",
+      "skuCadena": "575761",
+      "producto": "TakisOriginal 1p 152g FLOW BAR EXP",
+      "pvp": 179.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7803403004445",
+      "skuCadena": "601163",
+      "producto": "Takis Intense Nacho1p 49g FLOW BAR",
+      "pvp": 60.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7803403004438",
+      "skuCadena": "601164",
+      "producto": "Takis Intense Nacho1p 190g FLOW BAR",
+      "pvp": 189.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7500810047965",
+      "skuCadena": "",
+      "producto": "Takis Blue Heat 1p 49g FLOW BAR EXP",
+      "pvp": 60.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7500810048788",
+      "skuCadena": "",
+      "producto": "Takis BcknRnch 1p 49g UY FLOW BAR EXP",
+      "pvp": 60.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7500810048795",
+      "skuCadena": "",
+      "producto": "Takis BcknRnch 1p 190g UY FLOW BAR",
+      "pvp": 189.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7840131004637",
+      "skuCadena": "73859",
+      "producto": "Merienda Hit 1p 25g DPY MHI EXP",
+      "pvp": 37.33
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7840131004644",
+      "skuCadena": "363102",
+      "producto": "Merienda Hit 1p 37g DPY MHI EXP",
+      "pvp": 50.13
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7730117008493",
+      "skuCadena": "",
+      "producto": "Alfajor Chocolate 1p 80g DPY HAV",
+      "pvp": 80.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7750727006665",
+      "skuCadena": "516028",
+      "producto": "Salmas Horneadas 12p 216g CJ SAN EXP",
+      "pvp": 279.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7803403004131",
+      "skuCadena": "516029",
+      "producto": "Salmas Clasicas 6P 108G Cj San",
+      "pvp": 156.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117006956",
+      "skuCadena": "521084",
+      "producto": "Mini Crackers clásicas 1p 300g FLOW MC",
+      "pvp": 106.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117006963",
+      "skuCadena": "521099",
+      "producto": "Mini Crackers semillas 1p 300g FLOW MC",
+      "pvp": 106.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117006888",
+      "skuCadena": "521082",
+      "producto": "Cuban Cracker 1p 330g FLOW MC",
+      "pvp": 109.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117006901",
+      "skuCadena": "521086",
+      "producto": "Galleta Salvado Tripack 1p 360g FLOW MC",
+      "pvp": 124.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117006895",
+      "skuCadena": "521083",
+      "producto": "Galleta Selección de semillas Tripack 1p 375g FLOW MC",
+      "pvp": 144.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117007663",
+      "skuCadena": "554137",
+      "producto": "Gran Dulce Vainilla 1p 400g FLOW MC",
+      "pvp": 124.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117004891",
+      "skuCadena": "179000",
+      "producto": "Habanitos Agua 180g MC",
+      "pvp": 115.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117004907",
+      "skuCadena": "275720",
+      "producto": "Habanitos Queso 180g MC",
+      "pvp": 115.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117004914",
+      "skuCadena": "275718",
+      "producto": "Habanitos Jamon 180g MC",
+      "pvp": 115.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117004860",
+      "skuCadena": "243857",
+      "producto": "Finito Agua 100g Cj MC",
+      "pvp": 95.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117004884",
+      "skuCadena": "243858",
+      "producto": "Finito Salvado 100g MC",
+      "pvp": 95.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117004877",
+      "skuCadena": "243859",
+      "producto": "Grissin Finito Queso 100g MC",
+      "pvp": 95.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117004945",
+      "skuCadena": "438590",
+      "producto": "Grisines Gourmet Cebollas Asadas 120g",
+      "pvp": 105.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117004969",
+      "skuCadena": "438592",
+      "producto": "Grisines Gourmet Romero y Oliva 120g MC",
+      "pvp": 105.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117004976",
+      "skuCadena": "438593",
+      "producto": "Grisines Gourmet Manteca y Ciboullette 120g MC",
+      "pvp": 105.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117006970",
+      "skuCadena": "521095",
+      "producto": "Galleta Marie 1p 345g FLOW MC",
+      "pvp": 135.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117007786",
+      "skuCadena": "562146",
+      "producto": "Galleta Avena Mzana 1p 175g TUBO NUR EXP",
+      "pvp": 119.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117007779",
+      "skuCadena": "562147",
+      "producto": "Galleta Avena Pasas 1p 175g TUBO NUR EXP",
+      "pvp": 119.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117007793",
+      "skuCadena": "562145",
+      "producto": "Galleta Avena Choco 1p 175g TUBO NUR EXP",
+      "pvp": 119.0
+    },
+    {
+      "super": "tiendainglesa",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730911985129",
+      "skuCadena": "575766",
+      "producto": "Donuts Chocolate Fresca 1p 50g FLOW PAG",
+      "pvp": 64.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Panes",
+      "sku": "504172",
+      "ean": "7730117007557",
+      "skuCadena": "1506361",
+      "producto": "Pan Lacteado 1p 480g BOLSA LS",
+      "pvp": 125.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Panes",
+      "sku": "505795",
+      "ean": "7730117007564",
+      "skuCadena": "1506367",
+      "producto": "Pan Integral Familiar 1p 550g BOLSA LS",
+      "pvp": 159.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Panes",
+      "sku": "503974",
+      "ean": "7730117007229",
+      "skuCadena": "1506363",
+      "producto": "Pan Rallado Comun 1p 400g Bolsa LS",
+      "pvp": 119.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Panes",
+      "sku": "503975",
+      "ean": "7730117007236",
+      "skuCadena": "1506461",
+      "producto": "Pan Rallado Comun 1p 800g Bolsa LS",
+      "pvp": 179.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Panes",
+      "sku": "503973",
+      "ean": "7730117007243",
+      "skuCadena": "1506366",
+      "producto": "Pan Rallado Saborizado 1p 400g Bolsa LS",
+      "pvp": 125.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Panes",
+      "sku": "503972",
+      "ean": "7730117007250",
+      "skuCadena": "1506462",
+      "producto": "Pan Rallado Saborizado 1p 800g Bolsa LS",
+      "pvp": 189.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Panes",
+      "sku": "503189",
+      "ean": "7730117001135",
+      "skuCadena": "1506433",
+      "producto": "Pan Viena 8p 210g FLOW LSO",
+      "pvp": 119.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Panes",
+      "sku": "503447",
+      "ean": "7730117006581",
+      "skuCadena": "1506434",
+      "producto": "Tortuga 6p 280g Flow LS",
+      "pvp": 119.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Panes",
+      "sku": "964664",
+      "ean": "7730117008240",
+      "skuCadena": "1591703",
+      "producto": "Pan Blanco Mediano 1p 400g BOLSA BIM",
+      "pvp": 128.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Panes",
+      "sku": "964663",
+      "ean": "7730117008257",
+      "skuCadena": "1591704",
+      "producto": "Pan Blanco 1p 590g BOLSA BIM",
+      "pvp": 159.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Panes",
+      "sku": "964662",
+      "ean": "7730117008226",
+      "skuCadena": "1592244",
+      "producto": "Pan Integral Uy 1p 620g BOLSA BIM",
+      "pvp": 172.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Panes",
+      "sku": "964668",
+      "ean": "7730117008400",
+      "skuCadena": "1506445",
+      "producto": "Pan Integral CerCero 1p 580g BOLSA BIM",
+      "pvp": 196.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Panes",
+      "sku": "964667",
+      "ean": "7730117008394",
+      "skuCadena": "1506496",
+      "producto": "Pan Blanco CerCer 1p 560g BOLSA BIM",
+      "pvp": 182.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Panes",
+      "sku": "964666",
+      "ean": "7730117008233",
+      "skuCadena": "1506446",
+      "producto": "Pan Blanco Sin Sal 1p 400g BOLSA BIM",
+      "pvp": 164.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Panes",
+      "sku": "503614",
+      "ean": "7730117008196",
+      "skuCadena": "1564102",
+      "producto": "Pan Vital Semillas MM 1p 510g BOLSA BIM",
+      "pvp": 208.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Panes",
+      "sku": "503717",
+      "ean": "7730117008202",
+      "skuCadena": "1636923",
+      "producto": "Pan MixCereales Vital 1p 510g BOLSA BIM",
+      "pvp": 208.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Panes",
+      "sku": "964612",
+      "ean": "7730117008370",
+      "skuCadena": "1614007",
+      "producto": "Pan Blanco Artesano MM 1p 500g BOLSA BIM",
+      "pvp": 189.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Panes",
+      "sku": "964613",
+      "ean": "7730117008387",
+      "skuCadena": "1634986",
+      "producto": "Pan Integ Artesano MM 1p 500g BOLSA BIM",
+      "pvp": 196.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Panes",
+      "sku": "506482",
+      "ean": "7730117008073",
+      "skuCadena": "1506435",
+      "producto": "Pan Viena 8p 300g FLOW BIM",
+      "pvp": 126.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Panes",
+      "sku": "506481",
+      "ean": "7730117006598",
+      "skuCadena": "1566661",
+      "producto": "Tortuga 6p 330g FLOW BIM",
+      "pvp": 126.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Panes",
+      "sku": "506480",
+      "ean": "7730117007113",
+      "skuCadena": "1621361",
+      "producto": "Tortuga Sesamo 6p 330g FLOW BIM",
+      "pvp": 132.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Panes",
+      "sku": "503752",
+      "ean": "7730117007137",
+      "skuCadena": "1638207",
+      "producto": "Pan Hamb 4p 240g FLOW BIM",
+      "pvp": 114.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Panes",
+      "sku": "503746",
+      "ean": "7730117007120",
+      "skuCadena": "1638208",
+      "producto": "Pan Brioche 4p 240g Flow BIM",
+      "pvp": 114.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Panes",
+      "sku": "504397",
+      "ean": "7730117007823",
+      "skuCadena": "1642625",
+      "producto": "Pan de Papa Artesano 4p 300g FLOW BIM",
+      "pvp": 114.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Panes",
+      "sku": "504382",
+      "ean": "7840131003050",
+      "skuCadena": "1605672",
+      "producto": "Rapiditas Clasicas 1p 310g BOLSA BIM EXP",
+      "pvp": 164.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Panes",
+      "sku": "21478",
+      "ean": "7793890258264",
+      "skuCadena": "",
+      "producto": "Rapiditas Clasic 1p 275g BOLSA BIM",
+      "pvp": 164.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Panes",
+      "sku": "504384",
+      "ean": "7840131003067",
+      "skuCadena": "1605673",
+      "producto": "Rapiditas Light 1p 310g BOLSA BIM EXP",
+      "pvp": 164.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Panes",
+      "sku": "506413",
+      "ean": "7730117008066",
+      "skuCadena": "1589732",
+      "producto": "Rap Chia Linaza 1p 270g BOLSA BIM EXP",
+      "pvp": 164.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Panes",
+      "sku": "504383",
+      "ean": "7730117006802",
+      "skuCadena": "1634779",
+      "producto": "Tortilla Maxi 1p 420g BOLSA BIM EXP",
+      "pvp": 184.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Panes",
+      "sku": "504262",
+      "ean": "7793890259506",
+      "skuCadena": "1598056",
+      "producto": "Vainillas 1p 444g FLOW BIM EXP",
+      "pvp": 309.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Panes",
+      "sku": "504254",
+      "ean": "7793890259490",
+      "skuCadena": "1598055",
+      "producto": "Vainillas 1p 148g FLOW BIM EXP",
+      "pvp": 118.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Panes",
+      "sku": "502142",
+      "ean": "7793890260847",
+      "skuCadena": "1654970",
+      "producto": "Vainillas 1p 74g FLOW BIM EXP",
+      "pvp": 64.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Panes",
+      "sku": "504462",
+      "ean": "7730117007878",
+      "skuCadena": "1645315",
+      "producto": "Tortilla de Maiz 1p 270g BOLSA TR EXP",
+      "pvp": 152.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Panes",
+      "sku": "964818",
+      "ean": "7840131004538",
+      "skuCadena": "NO COMPRA",
+      "producto": "Torti HarinaBurrera 6p 420g BOLSA TR EXP",
+      "pvp": 177.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Panes",
+      "sku": "964819",
+      "ean": "7840131002909",
+      "skuCadena": "NO COMPRA",
+      "producto": "Torti HarinaFajitas 8p 240g BOLSA TR EXP",
+      "pvp": 152.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Panes",
+      "sku": "6246",
+      "ean": "7793890258943",
+      "skuCadena": "1621952",
+      "producto": "MadalenaVainilla CS 1p 200g FLOW BIM EXP",
+      "pvp": 104.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Panes",
+      "sku": "5217",
+      "ean": "7793890258936",
+      "skuCadena": "1621953",
+      "producto": "Madal Rellen DDL CS 1p 190g FLOW BIM EXP",
+      "pvp": 104.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Panes",
+      "sku": "964292",
+      "ean": "7793890262438",
+      "skuCadena": "",
+      "producto": "MadalenaVai Rell X1 1p 39g FLOW BIM EXP",
+      "pvp": 30.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Panes",
+      "sku": "964293",
+      "ean": "7793890262421",
+      "skuCadena": "",
+      "producto": "MadChoco Rell X1 1p 39g FLOW BIM EXP",
+      "pvp": 30.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Panes",
+      "sku": "503434",
+      "ean": "7730117006253",
+      "skuCadena": "1634780",
+      "producto": "Brownie 1p 62g Flow NUR EXP",
+      "pvp": 46.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Panes",
+      "sku": "503436",
+      "ean": "7730117006260",
+      "skuCadena": "1634781",
+      "producto": "Braunichoc 1p 35g Flow NUR EXP",
+      "pvp": 36.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Panes",
+      "sku": "504408",
+      "ean": "7730117007830",
+      "skuCadena": "NO COMPRA",
+      "producto": "Brownie Sin Azucar 1p 50g BOLSA NUR EXP",
+      "pvp": 65.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7500810026571",
+      "skuCadena": "1650360",
+      "producto": "TakisOriginal1p 56gFLOW BAR EXP",
+      "pvp": 60.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7500810026564",
+      "skuCadena": "1650361",
+      "producto": "TakisFuego 1p 56gFLOW BAR EXP",
+      "pvp": 60.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7500810026588",
+      "skuCadena": "1650362",
+      "producto": "TakisXplosion 1p 56gFLOW BAR EXP",
+      "pvp": 60.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7500810026700",
+      "skuCadena": "1650367",
+      "producto": "Takis Fuego 1p 152g FLOW BAR EXP",
+      "pvp": 179.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7500810026601",
+      "skuCadena": "1650368",
+      "producto": "TakisOriginal 1p 152g FLOW BAR EXP",
+      "pvp": 179.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7803403004445",
+      "skuCadena": "1659186",
+      "producto": "Takis Intense Nacho1p 49g FLOW BAR",
+      "pvp": 60.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7803403004438",
+      "skuCadena": "1659187",
+      "producto": "Takis Intense Nacho1p 190g FLOW BAR",
+      "pvp": 189.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7500810047965",
+      "skuCadena": "",
+      "producto": "Takis Blue Heat 1p 49g FLOW BAR EXP",
+      "pvp": 60.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7500810048788",
+      "skuCadena": "",
+      "producto": "Takis BcknRnch 1p 49g UY FLOW BAR EXP",
+      "pvp": 60.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7500810048795",
+      "skuCadena": "",
+      "producto": "Takis BcknRnch 1p 190g UY FLOW BAR",
+      "pvp": 189.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7840131004637",
+      "skuCadena": "1530499",
+      "producto": "Merienda Hit 1p 25g DPY MHI EXP",
+      "pvp": 40.53
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7840131004644",
+      "skuCadena": "1557794",
+      "producto": "Merienda Hit 1p 37g DPY MHI EXP",
+      "pvp": 52.27
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Snacks",
+      "sku": "",
+      "ean": "7730117008493",
+      "skuCadena": "",
+      "producto": "Alfajor Chocolate 1p 80g DPY HAV",
+      "pvp": 80.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7750727006665",
+      "skuCadena": "1639759",
+      "producto": "Salmas Horneadas 12p 216g CJ SAN EXP",
+      "pvp": 279.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7803403004131",
+      "skuCadena": "1621363",
+      "producto": "Salmas Clasicas 6P 108G Cj San",
+      "pvp": 156.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117006956",
+      "skuCadena": "1634922",
+      "producto": "Mini Crackers clásicas 1p 300g FLOW MC",
+      "pvp": 106.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117006963",
+      "skuCadena": "1634923",
+      "producto": "Mini Crackers semillas 1p 300g FLOW MC",
+      "pvp": 106.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117006888",
+      "skuCadena": "NO COMPRA",
+      "producto": "Cuban Cracker 1p 330g FLOW MC",
+      "pvp": 109.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117006901",
+      "skuCadena": "1634924",
+      "producto": "Galleta Salvado Tripack 1p 360g FLOW MC",
+      "pvp": 124.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117006895",
+      "skuCadena": "1634925",
+      "producto": "Galleta Selección de semillas Tripack 1p 375g FLOW MC",
+      "pvp": 144.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117007663",
+      "skuCadena": "1553157",
+      "producto": "Gran Dulce Vainilla 1p 400g FLOW MC",
+      "pvp": 124.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117004891",
+      "skuCadena": "1621350",
+      "producto": "Habanitos Agua 180g MC",
+      "pvp": 115.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117004907",
+      "skuCadena": "1621351",
+      "producto": "Habanitos Queso 180g MC",
+      "pvp": 115.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117004914",
+      "skuCadena": "1621352",
+      "producto": "Habanitos Jamon 180g MC",
+      "pvp": 115.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117004860",
+      "skuCadena": "1621353",
+      "producto": "Finito Agua 100g Cj MC",
+      "pvp": 95.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117004884",
+      "skuCadena": "1621354",
+      "producto": "Finito Salvado 100g MC",
+      "pvp": 95.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117004877",
+      "skuCadena": "1621355",
+      "producto": "Grissin Finito Queso 100g MC",
+      "pvp": 95.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117004945",
+      "skuCadena": "1621946",
+      "producto": "Grisines Gourmet Cebollas Asadas 120g",
+      "pvp": 105.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117004969",
+      "skuCadena": "1621948",
+      "producto": "Grisines Gourmet Romero y Oliva 120g MC",
+      "pvp": 105.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117004976",
+      "skuCadena": "1621950",
+      "producto": "Grisines Gourmet Manteca y Ciboullette 120g MC",
+      "pvp": 105.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117006970",
+      "skuCadena": "1626170",
+      "producto": "Galleta Marie 1p 345g FLOW MC",
+      "pvp": 135.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117007786",
+      "skuCadena": "1650654",
+      "producto": "Galleta Avena Mzana 1p 175g TUBO NUR EXP",
+      "pvp": 119.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117007779",
+      "skuCadena": "1650655",
+      "producto": "Galleta Avena Pasas 1p 175g TUBO NUR EXP",
+      "pvp": 119.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730117007793",
+      "skuCadena": "1650656",
+      "producto": "Galleta Avena Choco 1p 175g TUBO NUR EXP",
+      "pvp": 119.0
+    },
+    {
+      "super": "eldorado",
+      "sheet": "Galletas",
+      "sku": "",
+      "ean": "7730911985129",
+      "skuCadena": "1648295",
+      "producto": "Donuts Chocolate Fresca 1p 50g FLOW PAG",
+      "pvp": 64.0
+    }
+  ]
+}

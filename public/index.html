@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Artico Retail Watch - Precios en Supermercados Uruguay</title>
+<meta name="description" content="Monitor de precios de Congelados Artico y Helados Lekker en supermercados uruguayos." />
+<link rel="icon" href="/logo.svg" />
+<link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+
+<header class="app">
+  <div class="app-bar">
+    <div class="brand">
+      <img id="logoSlot" class="brand-logo-img" src="/logo.svg" alt="Congelados Artico" />
+      <div class="brand-text">
+        <span class="brand-name">Retail Watch</span>
+        <span class="brand-sub">Monitor de Precios &mdash; Uruguay</span>
+      </div>
+    </div>
+
+    <div class="header-actions">
+      <div class="last-update" id="lastUpdate">Cargando...</div>
+      <button class="btn primary" id="refreshBtn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+        Actualizar precios
+      </button>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs">
+  <button class="tab active" data-tab="catalog">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+    <span>Catalogo</span><span class="badge" id="badgeCatalog">0</span>
+  </button>
+
+  <button class="tab" data-tab="compare">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"></line><line x1="18" y1="20" x2="18" y2="4"></line><line x1="6" y1="20" x2="6" y2="16"></line></svg>
+    <span>Comparador</span><span class="badge" id="badgeCompare">0</span>
+  </button>
+  <button class="tab" data-tab="offers">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+    <span>Ofertas</span><span class="badge" id="badgeOffers">0</span>
+  </button>
+  <button class="tab" data-tab="positioning">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+    <span>Cobertura</span>
+  </button>
+  <button class="tab" data-tab="analysis">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+    <span>Analisis</span>
+  </button>
+  <button class="tab" data-tab="exec">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="9" y1="13" x2="15" y2="13"></line><line x1="9" y1="17" x2="15" y2="17"></line></svg>
+    <span>Informe</span>
+  </button>
+</nav>
+
+<main>
+  <div class="kpis" id="kpis"></div>
+
+  <!-- Catalogo -->
+  <section class="view active" id="view-catalog">
+    <div class="panel">
+      <h2 class="panel-title">Catalogo completo &mdash; <span id="catalogCount">0</span> productos</h2>
+      <div class="filters">
+        <input type="text" id="catalogQ" placeholder="Buscar producto..." autocomplete="off" />
+      </div>
+      <div class="filters">
+        <div class="chips" id="groupChips"></div>
+      </div>
+      <div class="filters">
+        <div class="chips" id="categoryChips"></div>
+      </div>
+      <div class="filters">
+        <div class="chips" id="superChips"></div>
+      </div>
+      <table id="tableCatalog">
+        <thead><tr>
+          <th data-sort="name">Producto</th>
+          <th data-sort="brand">Marca</th>
+          <th data-sort="category">Categoria</th>
+          <th data-sort="super">Super</th>
+          <th data-sort="price" class="sorted asc">Precio</th>
+          <th data-sort="listPrice">Lista</th>
+          <th>Oferta</th>
+        </tr></thead>
+        <tbody id="catalogRows"></tbody>
+      </table>
+      <div class="empty" id="catalogEmpty" style="display:none">Sin resultados para los filtros aplicados.</div>
+      <div style="margin-top:14px;display:flex;gap:8px;justify-content:flex-end">
+        <a class="btn" href="/data/latest.csv" download>CSV</a>
+        <a class="btn" href="/data/latest.json" download>JSON</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparador -->
+  <section class="view" id="view-compare">
+    <div class="panel">
+      <h2 class="panel-title">Comparador de precios &mdash; <span id="compareCount">0</span> grupos</h2>
+      <p style="margin:0 0 14px;color:var(--texto-muted);font-size:13px">Productos equivalentes en 2+ supermercados, ordenados por mayor diferencia de precio.</p>
+      <div class="filters">
+        <input type="text" id="compareQ" placeholder="Buscar producto..." autocomplete="off" />
+        <select id="compareCategory">
+          <option value="">Todas las categorias</option>
+        </select>
+      </div>
+      <div id="compareList"></div>
+    </div>
+  </section>
+
+  <!-- Ofertas -->
+  <section class="view" id="view-offers">
+    <div class="panel">
+      <h2 class="panel-title">Ofertas vigentes &mdash; <span id="offersCount">0</span> productos</h2>
+      <p style="margin:0 0 14px;color:var(--texto-muted);font-size:13px">Productos con descuento detectado (precio actual menor al de lista). Ordenados por mayor % de descuento.</p>
+      <div class="filters">
+        <input type="text" id="offersQ" placeholder="Buscar producto en ofertas..." autocomplete="off" />
+        <div class="chips" id="offersSuperChips"></div>
+      </div>
+      <table>
+        <thead><tr><th>Producto</th><th>Marca</th><th>Categoria</th><th>Super</th><th class="price">Lista</th><th class="price">Oferta</th><th class="price">Ahorra</th><th>%</th></tr></thead>
+        <tbody id="offersRows"></tbody>
+      </table>
+      <div class="empty" id="offersEmpty" style="display:none">No hay ofertas activas en este momento.</div>
+    </div>
+  </section>
+
+  <!-- Cobertura -->
+  <section class="view" id="view-positioning">
+    <div id="positioningContent"></div>
+  </section>
+
+  <!-- Analisis -->
+  <section class="view" id="view-analysis">
+    <div id="analysisContent"></div>
+  </section>
+
+  <!-- Informe Gerencial -->
+  <section class="view" id="view-exec">
+    <div id="execContent"></div>
+  </section>
+</main>
+
+<div id="modal" class="modal-overlay">
+  <div class="modal-box">
+    <button id="modalClose" class="modal-close" aria-label="Cerrar">&times;</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<script src="/app.js"></script>
+</body>
+</html>
