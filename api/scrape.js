@@ -52,16 +52,32 @@ async function scrapeTata() {
   return [...bySku.values()];
 }
 
-// ── VTEX genérico (ElDorado + Disco) ──────────────────────────────────────
+// ── VTEX genérico — intenta dominio principal y fallback vtexcommercestable ──
+async function fetchVtex(domain, term) {
+  const headers = { Accept: 'application/json', 'User-Agent': 'Mozilla/5.0' };
+  const sig = AbortSignal.timeout(9000);
+  // Intenta primero el dominio propio, luego el backend VTEX directo
+  const urls = [
+    `https://${domain}/api/catalog_system/pub/products/search?ft=${encodeURIComponent(term)}&_from=0&_to=49`,
+    `https://${domain}/api/catalog_system/pub/products/search?ft=${encodeURIComponent(term)}&_from=0&_to=49&sc=1`,
+  ];
+  for (const url of urls) {
+    try {
+      const r = await fetch(url, { headers, signal: sig });
+      if (!r.ok) continue;
+      const data = await r.json();
+      if (Array.isArray(data) && data.length > 0) return data;
+    } catch { /* intenta siguiente */ }
+  }
+  return [];
+}
+
 async function scrapeVtex(store, domain) {
   const bySku = new Map();
   await Promise.all(TERMS.map(async (term) => {
     try {
-      const url = `https://${domain}/api/catalog_system/pub/products/search?ft=${encodeURIComponent(term)}&_from=0&_to=49`;
-      const r = await fetch(url, { headers: { Accept: 'application/json', 'User-Agent': 'Mozilla/5.0' }, signal: AbortSignal.timeout(9000) });
-      if (!r.ok) return;
-      const products = await r.json();
-      for (const p of (Array.isArray(products) ? products : [])) {
+      const products = await fetchVtex(domain, term);
+      for (const p of products) {
         const item = p.items?.[0];
         const seller = item?.sellers?.find(s => s.sellerDefault) ?? item?.sellers?.[0];
         const sku = item?.itemId ?? p.productId;
@@ -76,29 +92,58 @@ async function scrapeVtex(store, domain) {
   return [...bySku.values()];
 }
 
-// ── Tienda Inglesa (HTML parse) ────────────────────────────────────────────
+// ── Tienda Inglesa ─────────────────────────────────────────────────────────
 async function scrapeTiendaInglesa() {
   const bySku = new Map();
-  await Promise.all(TERMS.slice(0, 3).map(async (term) => {
+
+  // Intento 1: API VTEX (si TI usa VTEX internamente)
+  await Promise.all(TERMS.map(async (term) => {
     try {
-      const url = `https://www.tiendainglesa.com.uy/supermercado/busqueda?0,0,${encodeURIComponent(term)},0`;
-      const r = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)', Accept: 'text/html', 'Accept-Language': 'es-UY,es;q=0.9' }, signal: AbortSignal.timeout(12000) });
-      const html = await r.text();
-      const skuRx = /href="[^"]*\.producto\?(\d+)"/g;
-      const nameRx = /(?:title|alt)="([^"]{5,100})"/g;
-      const priceRx = /\$\s*([\d.,]{2,8})/g;
-      const skus = [...html.matchAll(skuRx)].map(m => m[1]);
-      const names = [...html.matchAll(nameRx)].map(m => m[1]).filter(n => /artico|lekker/i.test(n));
-      const allPrices = [...html.matchAll(priceRx)].map(m => Number(m[1].replace(/\./g,'').replace(',','.'))).filter(p => p > 10 && p < 99999);
-      skus.forEach((sku, i) => {
-        if (bySku.has(sku)) return;
-        const name = names[i] ?? names[0] ?? '';
-        const b = matchBrand(name, term);
-        if (!b) return;
-        bySku.set(sku, { super: 'tiendainglesa', sku, name: name || `Producto Artico (${sku})`, ...b, category: detectCategory(name + term), price: allPrices[i * 2] ?? allPrices[0] ?? null, listPrice: allPrices[i * 2 + 1] ?? null, currency: 'UYU', url: `https://www.tiendainglesa.com.uy/supermercado/detalle.producto?${sku}` });
-      });
+      const url = `https://www.tiendainglesa.com.uy/api/catalog_system/pub/products/search?ft=${encodeURIComponent(term)}&_from=0&_to=49`;
+      const r = await fetch(url, { headers: { Accept: 'application/json', 'User-Agent': 'Mozilla/5.0' }, signal: AbortSignal.timeout(8000) });
+      if (!r.ok) return;
+      const products = await r.json();
+      if (!Array.isArray(products) || !products.length) return;
+      for (const p of products) {
+        const item = p.items?.[0];
+        const seller = item?.sellers?.find(s => s.sellerDefault) ?? item?.sellers?.[0];
+        const sku = item?.itemId ?? p.productId;
+        if (!sku || bySku.has(String(sku))) continue;
+        const name = item?.nameComplete ?? item?.name ?? p.productName ?? '';
+        const b = matchBrand(`${p.brand ?? ''} ${p.productName ?? ''} ${name}`, term);
+        if (!b) continue;
+        bySku.set(String(sku), { super: 'tiendainglesa', sku: String(sku), name, ...b, category: detectCategory(name), price: seller?.commertialOffer?.Price ?? null, listPrice: seller?.commertialOffer?.ListPrice ?? null, currency: 'UYU', url: p.link ?? (p.linkText ? `https://www.tiendainglesa.com.uy/${p.linkText}/p` : null) });
+      }
     } catch { /* continúa */ }
   }));
+
+  // Intento 2: scraping HTML si la API no devolvió nada
+  if (bySku.size === 0) {
+    await Promise.all(TERMS.slice(0, 4).map(async (term) => {
+      try {
+        const url = `https://www.tiendainglesa.com.uy/supermercado/busqueda?0,0,${encodeURIComponent(term)},0`;
+        const r = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)', Accept: 'text/html', 'Accept-Language': 'es-UY,es;q=0.9' }, signal: AbortSignal.timeout(12000) });
+        const html = await r.text();
+
+        // Extrae pares (sku, nombre) sin desalinear — busca bloques de producto
+        const blockRx = /href="[^"]*\.producto\?(\d+)"[^>]*>[\s\S]{0,400}?(?:title|alt)="([^"]{3,120})"/g;
+        let m;
+        while ((m = blockRx.exec(html)) !== null) {
+          const sku = m[1];
+          const name = m[2].trim();
+          if (bySku.has(sku)) continue;
+          const b = matchBrand(name, term);
+          if (!b) continue;
+          // precio: busca el precio más cercano después de esta posición
+          const nearby = html.slice(m.index, m.index + 600);
+          const priceM = nearby.match(/\$\s*([\d.]{2,8})/);
+          const price = priceM ? Number(priceM[1].replace(/\./g,'')) : null;
+          bySku.set(sku, { super: 'tiendainglesa', sku, name, ...b, category: detectCategory(name), price: price && price > 10 ? price : null, listPrice: null, currency: 'UYU', url: `https://www.tiendainglesa.com.uy/supermercado/detalle.producto?${sku}` });
+        }
+      } catch { /* continúa */ }
+    }));
+  }
+
   return [...bySku.values()];
 }
 
@@ -154,10 +199,9 @@ export default async function handler(req, res) {
   const generatedAt = new Date().toISOString();
   const payload = { brands: ['artico','lekker'], groups: { artico:['artico'], lekker:['lekker'] }, generatedAt, items, scrapeResults };
 
-  // Guardar en GitHub (sin bloquear la respuesta si tarda)
   commitToGitHub(payload).catch(() => {});
 
   const ms = Date.now() - t0;
-  console.log(`Scraping completado en ${ms}ms — ${items.length} productos`);
+  console.log(`Scraping completado en ${ms}ms — ${items.length} productos (${scrapeResults.map(s=>`${s.name}:${s.count}`).join(', ')})`);
   return res.status(200).json(payload);
 }
